@@ -1,0 +1,41 @@
+{
+  "name": "generic-job-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --open",
+    "server": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocknswimmer/Generic-Job-Site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocknswimmer/Generic-Job-Site/issues"
+  },
+  "homepage": "https://github.com/rocknswimmer/Generic-Job-Site#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.3",
+    "nodemon": "^2.0.20",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
