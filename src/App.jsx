@@ -22,7 +22,7 @@ function App() {
         <button onClick={loggingIn}>sketch what I can first</button>
 
       </div>}
-      {loggedIn && <h1>{`${user} logged in`}</h1>}
+      {loggedIn && <Jobs jobs={[1,1,1,1,1,1,1,1]}  user={user}/>}
     </div>
   )
 }
