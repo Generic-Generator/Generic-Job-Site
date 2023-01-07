@@ -18,7 +18,8 @@ function App() {
     <div>
       {!loggedIn && <div>
         <h1>Job Finder</h1>
-        <input type="text" placeholder="temp username field" onChange={updateUser}></input>
+        {/* taking security coding challenge and learning a lot since I glossed over this, should use user id to be able to validate its a number to help avoid sql injection attacks while retrieving user ids */}
+        <input type="text" placeholder="temp user id field" onChange={updateUser}></input>
         <button onClick={loggingIn}>sketch what I can first</button>
 
       </div>}
