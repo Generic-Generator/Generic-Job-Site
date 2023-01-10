@@ -10,7 +10,6 @@ function App() {
   }
 
   const loggingIn = () => {
-    console.log(user)
     setLoggedIn(!loggedIn)
   }
 
@@ -18,9 +17,10 @@ function App() {
     <div>
       {!loggedIn && <div>
         <h1>Job Finder</h1>
+        <h3>Front End Only right now, so nothing will persist on refresh</h3>
         {/* taking security coding challenge and learning a lot since I glossed over this, should use user id to be able to validate its a number to help avoid sql injection attacks while retrieving user ids */}
         <input type="text" placeholder="temp user id field" onChange={updateUser}></input>
-        <button onClick={loggingIn}>sketch what I can first</button>
+        <button onClick={loggingIn}>view job board</button>
 
       </div>}
       {loggedIn && <Jobs jobs={[1,1,1,1,1,1,1,1]}  user={user}/>}
