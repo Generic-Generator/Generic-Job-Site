@@ -10,7 +10,6 @@ function App() {
   }
 
   const loggingIn = () => {
-    console.log(user)
     setLoggedIn(!loggedIn)
   }
 
