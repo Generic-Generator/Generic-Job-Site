@@ -7,7 +7,7 @@ function Jobs({jobs, user}) {
   const [showApplied, setShowApplied] = useState(false);
   const [searching, setSearching] = useState(false);
   const [searched, setSearched] = useState('');
-  const [filtered, setfiltered] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   const displayApplied = () => {
     setShowApplied(!showApplied)
@@ -16,12 +16,31 @@ function Jobs({jobs, user}) {
   const interpretSearch = (e) => {
     setSearched(e.target.value)
   }
+
+  const searchedJobMaker = () => {
+    let searchedHolder = [];
+
+    jobs.forEach((job) => {
+      if (job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) {
+        searchedHolder.push(job);
+      }
+    });
+
+    setFiltered(searchedHolder);
+  };
+
   useEffect(() => {
-    if (searched.length > 0){
-      setSearching(true)
+    if (searched.length !== 2) {
+      if (searched.length === 3 && !searching) {
+        setSearching(!searching);
+      }
+      searchedJobMaker();
+    } else {
+      setSearching(!searching);
     }
-    console.log(searched)
-  }, [searched])
+  }, [((searched.length > 2) && (searched))])
+
+  useEffect()
 
   return (
     <div>
