@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Jobs from './Jobs.jsx';
+import {jobData} from './JobData.js';
 
 function App() {
   const [user, setUser] = useState('');
@@ -23,7 +24,7 @@ function App() {
         <button onClick={loggingIn}>view job board</button>
 
       </div>}
-      {loggedIn && <Jobs jobs={[1,1,1,1,1,1,1,1]}  user={user}/>}
+      {loggedIn && <Jobs jobs={jobData}  user={user}/>}
     </div>
   )
 }

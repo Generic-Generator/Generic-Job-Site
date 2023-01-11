@@ -19,7 +19,7 @@ function Jobs({jobs, user}) {
       {showApplied && <JobsApplied applied={appliedFor}/>}
       {!showApplied && jobs.map((job, i) => {
         return (
-        <JobPosting key={i} job={i + 1} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
     </div>
