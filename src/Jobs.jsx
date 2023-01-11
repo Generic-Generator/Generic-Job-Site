@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import JobPosting from './JobPosting.jsx';
 import JobsApplied from './JobsApplied.jsx';
 
@@ -13,6 +13,16 @@ function Jobs({jobs, user}) {
     setShowApplied(!showApplied)
   }
 
+  const interpretSearch = (e) => {
+    setSearched(e.target.value)
+  }
+  useEffect(() => {
+    if (searched.length > 0){
+      setSearching(true)
+    }
+    console.log(searched)
+  }, [searched])
+
   return (
     <div>
       {!showApplied && <h1>{`Jobs for ${user}`}</h1>}
@@ -22,7 +32,7 @@ function Jobs({jobs, user}) {
       {!showApplied &&
       <div>
         <br/>
-        <input type='text' placeholder='Search for Jobs'></input>
+        <input type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
         </div>}
       {showApplied && <JobsApplied applied={appliedFor}/>}
       {!showApplied && !searching && jobs.map((job, i) => {
