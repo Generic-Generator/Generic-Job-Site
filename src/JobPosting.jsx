@@ -16,12 +16,17 @@ function JobPosting({job, applied, addApplied}) {
 
   return (
     <div>
-    {!applying && <div>
-          <h1>{`Job ${job}`}</h1>
+    <div>
+          <h1>{`${job.Title}`}</h1>
           <button onClick={viewPost}>View Posting</button>
-    </div>}
+    </div>
     {applying && <Modal close={() => {viewPost()}} content={
-      <div>{`display Job ${job} Information`}
+      <div>
+        <h1>{`${job.Title}`}</h1>
+        <p>{job.Description}</p>
+      <br/>
+      <p>{`Experience: ${job.Experience} Years`}</p>
+      <br/>
       <button onClick={applyNow}>Apply</button>
       </div>}
       />}
