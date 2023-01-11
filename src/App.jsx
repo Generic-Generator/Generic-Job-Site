@@ -5,13 +5,19 @@ import {jobData} from './JobData.js';
 function App() {
   const [user, setUser] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
   const updateUser = (e) => {
     setUser(e.target.value);
   }
 
   const loggingIn = () => {
-    setLoggedIn(!loggedIn)
+    if (user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
+      setLoggedIn(!loggedIn)
+    } else {
+      alert('user id must be a number for security')
+    }
+
   }
 
   return (
