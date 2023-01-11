@@ -25,6 +25,8 @@ function JobPosting({job, applied, addApplied}) {
         <h1>{`${job.Title}`}</h1>
         <p>{job.Description}</p>
       <br/>
+      <p>{`Experience: ${job.Experience} Years`}</p>
+      <br/>
       <button onClick={applyNow}>Apply</button>
       </div>}
       />}
