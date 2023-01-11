@@ -8,6 +8,7 @@ function Jobs({jobs, user}) {
   const [searching, setSearching] = useState(false);
   const [searched, setSearched] = useState('');
   const [filtered, setFiltered] = useState([]);
+  const [notApplied, setNotApplied] = useState(jobs);
 
   const displayApplied = () => {
     setShowApplied(!showApplied)
@@ -40,7 +41,18 @@ function Jobs({jobs, user}) {
     }
   }, [((searched.length > 2) && (searched))])
 
-  useEffect()
+  useEffect(() => {
+    let notAppliedHolder = []
+    let appliedJobs = appliedFor.map((job) => {return job.Job})
+    jobs.forEach((job) => {
+      if (appliedJobs.indexOf(job.Job) === -1) {
+        notAppliedHolder.push(job);
+      }
+    });
+
+    setNotApplied(notAppliedHolder)
+
+  }, [appliedFor])
 
   return (
     <div>
@@ -52,13 +64,15 @@ function Jobs({jobs, user}) {
       <div>
         <br/>
         <input type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
+        <br/>
         </div>}
       {showApplied && <JobsApplied applied={appliedFor}/>}
-      {!showApplied && !searching && jobs.map((job, i) => {
+      {!showApplied && !searching && notApplied.length > 0 && notApplied.map((job, i) => {
         return (
         <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
+        {!showApplied && !searching && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
         {!showApplied && searching && filtered.length > 0 && filtered.map((job, i) => {
         return (
         <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
