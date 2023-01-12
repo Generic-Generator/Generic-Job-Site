@@ -33,13 +33,13 @@ function Jobs({jobs, user}) {
 
       if(searched.length < 3) {
 
-        jobs.forEach((job) => {
+        notApplied.forEach((job) => {
           if (job.Experience <= exp) {
             searchedHolder.push(job);
           }
         });
       } else {
-        jobs.forEach((job) => {
+        notApplied.forEach((job) => {
         if ((job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) && job.Experience <= exp) {
           searchedHolder.push(job);
         }
@@ -57,7 +57,7 @@ function Jobs({jobs, user}) {
 console.log('working', searchedHolder)
       setFiltered(searchedHolder);
     } else {
-      jobs.forEach((job) => {
+      notApplied.forEach((job) => {
       if (job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) {
         searchedHolder.push(job);
       }
