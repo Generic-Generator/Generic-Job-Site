@@ -19,24 +19,53 @@ function Jobs({jobs, user}) {
     setSearched(e.target.value)
   }
 
+  const interpretExp = (e) => {
+    if (e.target.value > -1){
+      setSearching(true)
+    }
+    setExp(Number(e.target.value));
+  }
+
   const searchedJobMaker = () => {
     let searchedHolder = [];
 
     if(exp > -1){
 
+      if(searched.length < 3) {
+
+        jobs.forEach((job) => {
+          if (job.Experience <= exp) {
+            searchedHolder.push(job);
+          }
+        });
+      } else {
+        jobs.forEach((job) => {
+        if ((job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) && job.Experience <= exp) {
+          searchedHolder.push(job);
+        }
+      });
+      }
+      searchedHolder.sort((a, b) => {
+        if (a.Experience < b.Experience){
+          return 1
+        }
+        if (a.Experience > b.Experience){
+          return -1
+        }
+        return 0;
+      })
+console.log('working', searchedHolder)
+      setFiltered(searchedHolder);
     } else {
       jobs.forEach((job) => {
       if (job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) {
         searchedHolder.push(job);
       }
     });
+    setFiltered(searchedHolder);
     }
 
 
-
-
-
-    setFiltered(searchedHolder);
   };
 
   useEffect(() => {
@@ -52,6 +81,7 @@ function Jobs({jobs, user}) {
 
   useEffect(() => {
     searchedJobMaker();
+
   }, [exp])
 
   useEffect(() => {
@@ -78,6 +108,17 @@ function Jobs({jobs, user}) {
         <br/>
         <input type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
         <br/>
+          <label>Years of Experience:</label>
+          <select name="exp" id="exp" onChange={interpretExp}>
+          <option value={-1}>Select</option>
+            <option value={0}>0</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
+          <br/>
         </div>}
       {showApplied && <JobsApplied applied={appliedFor}/>}
       {!showApplied && !searching && notApplied.length > 0 && notApplied.map((job, i) => {
