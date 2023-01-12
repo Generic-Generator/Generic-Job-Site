@@ -54,7 +54,6 @@ function Jobs({jobs, user}) {
         }
         return 0;
       })
-console.log('working', searchedHolder)
       setFiltered(searchedHolder);
     } else {
       notApplied.forEach((job) => {
@@ -82,12 +81,12 @@ console.log('working', searchedHolder)
   useEffect(() => {
     searchedJobMaker();
 
-  }, [exp])
+  }, [exp, notApplied])
 
   useEffect(() => {
     let notAppliedHolder = []
     let appliedJobs = appliedFor.map((job) => {return job.Job})
-    jobs.forEach((job) => {
+    notApplied.forEach((job) => {
       if (appliedJobs.indexOf(job.Job) === -1) {
         notAppliedHolder.push(job);
       }
