@@ -131,7 +131,9 @@ function Jobs({jobs, user}) {
         <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
-        {!showApplied && searching && filtered.length === 0 && <div>No Results Matching Your Search</div>}
+        {!showApplied && searching && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
+        {!showApplied && searching && filtered.length === 0 && notApplied.length > 0 &&  appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
+
     </div>
   )
 }
