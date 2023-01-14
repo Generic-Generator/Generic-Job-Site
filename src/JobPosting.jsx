@@ -16,8 +16,8 @@ function JobPosting({job, applied, addApplied}) {
 
   return (
     <div>
-    <div>
-          <h1>{`${job.Title}`}</h1>
+    <div className="posting">
+          <h1 className="title">{`${job.Title}`}</h1>
           <button onClick={viewPost}>View Posting</button>
     </div>
     {applying && <Modal close={() => {viewPost()}} content={
