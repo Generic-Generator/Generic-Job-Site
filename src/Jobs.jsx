@@ -97,17 +97,17 @@ function Jobs({jobs, user}) {
   }, [appliedFor])
 
   return (
-    <div>
-      {!showApplied && <h1>{`Jobs for ${user}`}</h1>}
-      {showApplied && <h1>{`Jobs user ${user} Applied for`}</h1>}
-      {!showApplied && <button onClick={displayApplied}>view Jobs Applied to</button>}
-      {showApplied && <button onClick={displayApplied}>view Job Openings</button>}
+    <div className="jobs">
+      {!showApplied && <h1>{`Jobs for user ${user}`}</h1>}
+      {showApplied && <h1>{`User ${user} Applied to ${appliedFor.length} Jobs`}</h1>}
+      {!showApplied && <button className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
+      {showApplied && <button className="applied" onClick={displayApplied}>view Job Openings</button>}
       {!showApplied &&
-      <div>
+      <div className="search">
         <br/>
         <input type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
-        <br/>
-          <label>Years of Experience:</label>
+
+          <label className="xp-label">Years of Experience:</label>
           <select name="exp" id="exp" onChange={interpretExp}>
           <option value={-1}>Select</option>
             <option value={0}>0</option>
@@ -122,16 +122,18 @@ function Jobs({jobs, user}) {
       {showApplied && <JobsApplied applied={appliedFor}/>}
       {!showApplied && !searching && notApplied.length > 0 && notApplied.map((job, i) => {
         return (
-        <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
         {!showApplied && !searching && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
         {!showApplied && searching && filtered.length > 0 && filtered.map((job, i) => {
         return (
-        <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
-        {!showApplied && searching && filtered.length === 0 && <div>No Results Matching Your Search</div>}
+        {!showApplied && searching && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
+        {!showApplied && searching && filtered.length === 0 && notApplied.length > 0 &&  appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
+
     </div>
   )
 }
