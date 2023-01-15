@@ -44,7 +44,7 @@ function App() {
               <br />
               To demonstrate that I have thought about user input attacks, I have only approved the digits 0-9 for the user input field to simulate making sure the users Id returned after authentication is a number. </p>
             <div>
-              <input type="text" placeholder="input a 'user' number" onChange={updateUser}></input>
+              <input name="userID" type="text" placeholder="input a 'user' number" onChange={updateUser}></input>
               <button onClick={loggingIn}>Login to view job postings</button>
             </div>
 
