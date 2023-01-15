@@ -122,13 +122,13 @@ function Jobs({jobs, user}) {
       {showApplied && <JobsApplied applied={appliedFor}/>}
       {!showApplied && !searching && notApplied.length > 0 && notApplied.map((job, i) => {
         return (
-        <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
         {!showApplied && !searching && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
         {!showApplied && searching && filtered.length > 0 && filtered.map((job, i) => {
         return (
-        <JobPosting key={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
         {!showApplied && searching && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}

@@ -49,13 +49,13 @@ export const jobData = [
   },
   {
     Job: 9,
-    Description: 'Tech Stack:',
+    Description: 'Tech Stack: not sure',
     Experience: 3,
     Title: 'Full Stack, Ruby'
   },
   {
     Job: 10,
-    Description: 'Tech Stack:',
+    Description: 'Tech Stack: not sure something about spring?',
     Experience: 5,
     Title: 'Full Stack Java Dev'
   }

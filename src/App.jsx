@@ -4,6 +4,7 @@ import {jobData} from './JobData.js';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './globalStyles.js';
 import { lightTheme, darkTheme } from './Themes.js';
+import './compStyles.css';
 import Header from './Header.jsx';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
     if (user.length > 0 && user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
       setLoggedIn(!loggedIn)
     } else {
-      alert("user id must be a number for security Whitelist = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
+      alert("user id must be a number for security, the array of approved values is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
     }
 
   }
@@ -38,13 +39,13 @@ function App() {
           {!loggedIn && <div className='overview'>
             <h1>Generic Job Site Front End</h1>
             <h3>This is A Front End Only Demo, so nothing will persist on refresh</h3>
-            <p>This login screen is set up in preparation for how the site would respond after authentication. Authentication and back end are held off for now due to lack of funding. The only thing I have recieved charges for were data transfers between my deployed backend and server. As for authentication, during my final project at Hack Reactor, we were not able to deploy because we needed an ssl certificate, which for the most part costs money.
+            <p>This login screen is set up in preparation for how the site would respond after authentication. Authentication and back end are held off for now due to a lack of funding. Data transfers and ssl certificates are the costs I am trying to avoid.
               <br />
               <br />
-              To demonstrate that I have thought about user input attacks, I have whitelisted the digits 0-9 for the user input field to simulate making sure the users Id returned after authentication is a number. </p>
+              To demonstrate that I have thought about user input attacks, I have only approved the digits 0-9 for the user input field to simulate making sure the users Id returned after authentication is a number. </p>
             <div>
               <input type="text" placeholder="input a 'user' number" onChange={updateUser}></input>
-              <button onClick={loggingIn}>Login to view job board</button>
+              <button onClick={loggingIn}>Login to view job postings</button>
             </div>
 
           </div>}

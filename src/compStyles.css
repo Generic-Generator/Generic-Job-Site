@@ -1,3 +1,4 @@
+/* modal styles */
 .modal {
   margin: auto;
 }
@@ -11,7 +12,6 @@
   margin: auto;
   overflow-y: scroll;
   overflow: scroll;
-  /* padding: 1em 2em 2em; */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -42,6 +42,8 @@
   justify-content: flex-end;
 }
 
+/* header theme toggler */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -49,14 +51,13 @@
   height: 34px;
   margin-top: 30px;
 }
-/* Hide default HTML checkbox */
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -95,11 +96,9 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
 }
 
@@ -110,12 +109,35 @@ input:checked + .slider:before {
   align-items: center;
 }
 
+/* accordion styles */
+
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion-item {
+  max-width: 90vw;
+  min-width: 30vw;
+}
+
+.accordion-content {
+  color: #1F2224;
+  background-color: #09ffde;
+}
+
+/* General styles */
 button {
   margin: 5px;
   background: #1414cd;
   color: rgb(223, 222, 222)
 }
 
+input {
+  width: 25em;
+}
+
+/* Login Page styles */
 .overview {
   display: flex;
   flex-direction: column;
@@ -126,6 +148,8 @@ p {
   max-width: 50em;
 }
 
+/* Job postings Styles */
+
 .applied {
   background-color: green;
 }
@@ -134,8 +158,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-width: 40em;
-  border: solid grey 1px;
+  min-width: 40vw;
+  max-width: 90vw;
 }
 
 .jobs {
@@ -146,6 +170,7 @@ p {
 
 .search {
   margin-bottom: 20px;
+  max-width: 100vw;
 }
 
 .xp-label {
@@ -153,10 +178,10 @@ p {
   margin-right: 5px;
 }
 
-input {
-  width: 25em;
-}
-
 .title {
   margin-left: 5px;
+}
+
+.even {
+  background-color: #29b8ff;
 }
