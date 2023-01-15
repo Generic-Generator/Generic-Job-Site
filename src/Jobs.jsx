@@ -105,7 +105,7 @@ function Jobs({jobs, user}) {
       {!showApplied &&
       <div className="search">
         <br/>
-        <input type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
+        <input name="Searchbar" type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
 
           <label className="xp-label">Years of Experience:</label>
           <select name="exp" id="exp" onChange={interpretExp}>
