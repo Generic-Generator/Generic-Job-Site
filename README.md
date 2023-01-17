@@ -2,7 +2,7 @@
 
 Devoloping an MVP for a Job Search site since I have been on quite a few and have ideas for improvement.
 
-I am building out the front end first to be able to deploy a functional demo by mid January.
+Deployed Demo: [DEMO](http://52.21.107.140:3004/)
 
 Features Walkthrough.
 
