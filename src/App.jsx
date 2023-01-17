@@ -56,6 +56,7 @@ function App() {
 
           </div>}
           {loggedIn && <Jobs jobs={jobData} user={user} />}
+          {!loggedIn && <div><br/><br/>updated 1/17/23 after suggestions</div>}
         </div>
       </>
     </ThemeProvider>
