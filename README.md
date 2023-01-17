@@ -3,6 +3,7 @@
 Devoloping an MVP for a Job Search site since I have been on quite a few and have ideas for improvement.
 
 Deployed Demo: [DEMO](http://52.21.107.140:3004/)
+I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap.
 
 Features Walkthrough.
 
@@ -11,5 +12,3 @@ Features Walkthrough.
 Once "logged in" you can see the job posting page. You can also see jobs applied for by clicking the view jobs applied to button. A message will display letting you know if there are no jobs when there are none applied to, none match the search, or you have applied to all jobs.
 
 The search feature starts filtering jobs based on title and description when the term reaches a length of 3 charactors. There is also a drop down to filter by years of experience, which works with the search term to filter results. If the experience filter is applied results are sorted by jobs requiring the most experience first.
-
-I hope this demo was more entertaining to evaluate my skills than just watching a video.
