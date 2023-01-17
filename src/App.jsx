@@ -25,7 +25,7 @@ function App() {
     if (user.length > 0 && user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
       setLoggedIn(!loggedIn)
     } else {
-      alert("user id must be a positive whole number for security, the array of approved charactors is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
+      alert("user id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
     }
 
   }

@@ -101,17 +101,17 @@ function Jobs({jobs, user}) {
       {!showApplied && <h1>{`Jobs for user ${user}`}</h1>}
       {showApplied && <h1>{`User ${user} Applied to ${appliedFor.length} Jobs`}</h1>}
       <h2>This is A Front End Only Demo, so nothing will save if you leave the site or refresh</h2>
-      <h3>The button below stiches between jobs you have applied to and jobs you can apply to</h3>
+      <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
       {!showApplied && <button className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
       {showApplied && <button className="applied" onClick={displayApplied}>view Job Openings</button>}
       {!showApplied &&
       <div className="search">
         <br/>
-<h3>The Jobs will filter to match the term typed below once it is at least 3 charactors long</h3>
+<h3>The jobs will filter to match the term typed below once it is at least 3 characters long</h3>
         <input name="Searchbar" type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
 <br/>
-<h3>Select the years of experience you have to see jobs filted to that much experince or less</h3>
-<h4>These results can be combined with the search and will sort most experience to least</h4>
+<h3>Select the years of experience you have to see jobs filtered to that much experince or less</h3>
+<h4>These results are combined with the search and will sort most experience to least</h4>
           <label className="xp-label">Years of Experience:</label>
           <select name="exp" id="exp" onChange={interpretExp}>
           <option value={-1}>Select</option>
@@ -125,7 +125,7 @@ function Jobs({jobs, user}) {
           <br/>
         </div>}
 
-        {!showApplied && <div><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
+        {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
         {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
       {showApplied && <JobsApplied applied={appliedFor}/>}
       {!showApplied && !searching && notApplied.length > 0 && notApplied.map((job, i) => {
