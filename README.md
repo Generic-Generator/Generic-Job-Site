@@ -3,6 +3,7 @@
 Devoloping an MVP for a Job Search site since I have been on quite a few and have ideas for improvement.
 
 Deployed Demo: [DEMO](http://52.21.107.140:3004/)
+
 I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap.
 
 Features Walkthrough.
