@@ -6,6 +6,7 @@ function Jobs({jobs, user}) {
   const [appliedFor, setAppliedFor] = useState([])
   const [showApplied, setShowApplied] = useState(false);
   const [searching, setSearching] = useState(false);
+  const [searchingXp, setSearchingXp] = useState(false);
   const [searched, setSearched] = useState('');
   const [filtered, setFiltered] = useState([]);
   const [notApplied, setNotApplied] = useState(jobs);
@@ -21,7 +22,9 @@ function Jobs({jobs, user}) {
 
   const interpretExp = (e) => {
     if (e.target.value > -1){
-      setSearching(true)
+      setSearchingXp(true)
+    } else {
+      setSearchingXp(false)
     }
     setExp(Number(e.target.value));
   }
@@ -100,7 +103,7 @@ function Jobs({jobs, user}) {
     <div className="jobs">
       {!showApplied && <h1>{`Jobs for user ${user}`}</h1>}
       {showApplied && <h1>{`User ${user} Applied to ${appliedFor.length} Jobs`}</h1>}
-      <h2>This is A Front End Only Demo, so nothing will save if you leave the site or refresh</h2>
+      <h2>This is a front end only demo, so nothing will save if you leave the site or refresh</h2>
       <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
       {!showApplied && <button className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
       {showApplied && <button className="applied" onClick={displayApplied}>view Job Openings</button>}
@@ -128,19 +131,19 @@ function Jobs({jobs, user}) {
         {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
         {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
       {showApplied && <JobsApplied applied={appliedFor}/>}
-      {!showApplied && !searching && notApplied.length > 0 && notApplied.map((job, i) => {
+      {!showApplied && (!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
         return (
         <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
-        {!showApplied && !searching && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
-        {!showApplied && searching && filtered.length > 0 && filtered.map((job, i) => {
+        {!showApplied && (!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
+        {!showApplied && (searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
         return (
         <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
-        {!showApplied && searching && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
-        {!showApplied && searching && filtered.length === 0 && notApplied.length > 0 &&  appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
+        {!showApplied && (searching || searchingXp) && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
+        {!showApplied && (searching || searchingXp) && filtered.length === 0 && notApplied.length > 0 &&  appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
 
     </div>
   )
