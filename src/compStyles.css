@@ -114,6 +114,11 @@ input:checked + .slider:before {
 .accordion-title {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
+  border: 1px solid gray;
+  background-color: #28d7d7;
+  border-radius: 2%;
+  color: #1F2224;
 }
 
 .accordion-item {
@@ -124,6 +129,8 @@ input:checked + .slider:before {
 .accordion-content {
   color: #1F2224;
   background-color: #09ffde;
+  border-radius: 2%;
+  border: 1px solid gray;
 }
 
 /* General styles */
@@ -160,6 +167,11 @@ p {
   justify-content: space-between;
   min-width: 40vw;
   max-width: 90vw;
+  margin: 5px;
+  border: 1px solid gray;
+  background-color: #28d7d7;
+  border-radius: 2%;
+  color: #1F2224;
 }
 
 .jobs {
