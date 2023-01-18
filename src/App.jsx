@@ -22,6 +22,10 @@ function App() {
   }
 
   const loggingIn = () => {
+    if(user.length > 8) {
+      alert("user id must be a positive whole number 8 digits or less")
+      return
+    }
     if (user.length > 0 && user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
       setLoggedIn(!loggedIn)
     } else {
@@ -45,12 +49,12 @@ function App() {
             <h1>Generic Job Site Front End</h1>
             <h2>To skip user input security demo click button below</h2>
             <button onClick={loginSkipped}>Skip Login</button>
-            <p>This login screen is set up in preparation to recieving a user id after authentication. Authentication and back end are held off for now due to a lack of funding. Data transfers and ssl certificates are the costs I am trying to avoid.
+            <p>Authentication and back end are held off for now due to a lack of funding. Data transfers and ssl certificates are the main costs I am trying to avoid deploing with a back end or authentication. I am also using this EC2 instance for as many projects as possible to reduce the hours used while deployed. Therefore, photos are not used to save on the limited memory available.
               <br />
               <br />
-              To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field to simulate only allowing approved charactors and making sure the users id returned after authentication is a number. </p>
+              This login screen is set up in preparation to recieve a user id after authentication. To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field and limited the length to a max of 8 digits. </p>
             <div>
-              <input name="userID" type="text" placeholder="input a 'user id' number" onChange={updateUser}></input>
+              <input name="userID" type="text" placeholder="Input a 'user id' number, 8 digits or less"  onChange={updateUser}></input>
               <button onClick={loggingIn}>Login to view job postings</button>
             </div>
 
