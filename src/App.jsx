@@ -43,7 +43,7 @@ function App() {
         <div>
           {!loggedIn && <div className='overview'>
             <h1>Generic Job Site Front End</h1>
-            <h2>To Skip user input security demo click button below</h2>
+            <h2>To skip user input security demo click button below</h2>
             <button onClick={loginSkipped}>Skip Login</button>
             <p>This login screen is set up in preparation to recieving a user id after authentication. Authentication and back end are held off for now due to a lack of funding. Data transfers and ssl certificates are the costs I am trying to avoid.
               <br />
@@ -56,7 +56,7 @@ function App() {
 
           </div>}
           {loggedIn && <Jobs jobs={jobData} user={user} />}
-          {!loggedIn && <div><br/><br/>updated 1/17/23 after suggestions</div>}
+          {!loggedIn && <div><br/><br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>
