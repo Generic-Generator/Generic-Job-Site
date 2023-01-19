@@ -60,7 +60,7 @@ function App() {
 
           </div>}
           {loggedIn && <Jobs jobs={jobData} user={user} />}
-          {!loggedIn && <div><br/><br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
+          {!loggedIn && <div><br/><br/>last updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>
