@@ -37,22 +37,22 @@ function Jobs({jobs, user}) {
       if(searched.length < 3) {
 
         notApplied.forEach((job) => {
-          if (job.Experience <= exp) {
+          if (job.experience <= exp) {
             searchedHolder.push(job);
           }
         });
       } else {
         notApplied.forEach((job) => {
-        if ((job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) && job.Experience <= exp) {
+        if ((job.title.toUpperCase().includes(searched.toUpperCase()) || job.description.toUpperCase().includes(searched.toUpperCase())) && job.experience <= exp) {
           searchedHolder.push(job);
         }
       });
       }
       searchedHolder.sort((a, b) => {
-        if (a.Experience < b.Experience){
+        if (a.experience < b.experience){
           return 1
         }
-        if (a.Experience > b.Experience){
+        if (a.experience > b.experience){
           return -1
         }
         return 0;
@@ -60,7 +60,7 @@ function Jobs({jobs, user}) {
       setFiltered(searchedHolder);
     } else {
       notApplied.forEach((job) => {
-      if (job.Title.toUpperCase().includes(searched.toUpperCase()) || job.Description.toUpperCase().includes(searched.toUpperCase())) {
+      if (job.title.toUpperCase().includes(searched.toUpperCase()) || job.description.toUpperCase().includes(searched.toUpperCase())) {
         searchedHolder.push(job);
       }
     });
@@ -88,9 +88,9 @@ function Jobs({jobs, user}) {
 
   useEffect(() => {
     let notAppliedHolder = []
-    let appliedJobs = appliedFor.map((job) => {return job.Job})
+    let appliedJobs = appliedFor.map((job) => {return job.job})
     notApplied.forEach((job) => {
-      if (appliedJobs.indexOf(job.Job) === -1) {
+      if (appliedJobs.indexOf(job.job) === -1) {
         notAppliedHolder.push(job);
       }
     });

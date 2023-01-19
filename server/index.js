@@ -18,9 +18,21 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(compression());
 
-// mongoose.connect()
-
 app.use(express.static(path.join(__dirname, '../public')));
+
+app.get('/1', (req, res) => {
+  res.send('hitting server')
+})
+
+app.get('/jobs', (req, res) => {
+  pool.query('select id as Job, title as Title, descript as Description, experience as Experience from jobs', (err, data) => {
+    if (err) {
+      console.log('error retrieving runners from db: ', err);
+      throw err;
+    }
+    res.send(data.rows);
+  })
+});
 
 app.listen(3004);
 console.log('Listening on port 3004');

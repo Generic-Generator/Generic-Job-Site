@@ -17,15 +17,15 @@ function JobPosting({job, applied, addApplied, ind}) {
   return (
     <div>
     <div className={`posting${(ind % 2 === 0) ? " even" : ""}`}>
-          <h1 className="title">{`${job.Title}`}</h1>
+          <h1 className="title">{`${job.title}`}</h1>
           <button onClick={viewPost}>View Posting</button>
     </div>
     {applying && <Modal close={() => {viewPost()}} content={
       <div>
-        <h1>{`${job.Title}`}</h1>
-        <p>{job.Description}</p>
+        <h1>{`${job.title}`}</h1>
+        <p>{job.description}</p>
       <br/>
-      <p>{`Experience: ${job.Experience} Years`}</p>
+      <p>{`Experience: ${job.experience} Years`}</p>
       <br/>
       <button onClick={applyNow}>Apply</button>
       </div>}

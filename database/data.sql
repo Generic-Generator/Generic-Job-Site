@@ -21,6 +21,7 @@ CREATE TABLE applied (
 
 insert into jobs (title, descript, experience) values ('Full Stack I', 'Tech Stack: mongodb, express, angular, node', 0) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack II', 'Tech Stack: mongodb, express, react, node', 2) returning *;
+insert into jobs (title, descript, experience) values ('Full Stack III', 'Tech Stack: mongodb, express, react, node', 4) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack dev', 'Tech Stack: typescript, vue, mysql, postgresql', 3) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack engineer', 'Tech Stack: mongodb, express, angular, node', 1) returning *;
 insert into jobs (title, descript, experience) values ('Junior Full Stack', 'Tech Stack: mongodb, express, react, node', 0) returning *;

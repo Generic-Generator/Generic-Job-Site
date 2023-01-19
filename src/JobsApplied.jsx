@@ -10,8 +10,8 @@ function JobsApplied({applied}) {
     {applied.length > 0 && applied.map((job, i) => {
       return (<Accordion
         key={i}
-        title={<h2 className="title">{job.Title}</h2>}
-        content={<div>{job.Description} <br/> {`Experience: ${job.Experience}`}</div>}
+        title={<h2 className="title">{job.title}</h2>}
+        content={<div>{job.description} <br/> {`Experience: ${job.experience}`}</div>}
         ind={i}
       />)
     })}
