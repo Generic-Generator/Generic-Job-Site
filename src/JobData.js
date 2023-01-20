@@ -1,62 +1,62 @@
 export const jobData = [
   {
-    Job: 1,
-    Description: 'Tech Stack: mongodb, express, angular, node',
-    Experience: 0,
-    Title: 'Full Stack I'
+    job: 1,
+    description: 'Tech Stack: mongodb, express, angular, node',
+    experience: 0,
+    title: 'Full Stack I'
   },
   {
-    Job: 2,
-    Description: 'Tech Stack: mongodb, express, react, node',
-    Experience: 2,
-    Title: 'Full Stack II'
+    job: 2,
+    description: 'Tech Stack: mongodb, express, react, node',
+    experience: 2,
+    title: 'Full Stack II'
   },
   {
-    Job: 3,
-    Description: 'Tech Stack: typescript, vue, mysql, postgresql',
-    Experience: 3,
-    Title: 'Full Stack dev'
+    job: 3,
+    description: 'Tech Stack: typescript, vue, mysql, postgresql',
+    experience: 3,
+    title: 'Full Stack dev'
   },
   {
-    Job: 4,
-    Description: 'Tech Stack: mongodb, express, angular, node',
-    Experience: 1,
-    Title: 'Full Stack engineer'
+    job: 4,
+    description: 'Tech Stack: mongodb, express, angular, node',
+    experience: 1,
+    title: 'Full Stack engineer'
   },
   {
-    Job: 5,
-    Description: 'Tech Stack: mongodb, express, react, node',
-    Experience: 0,
-    Title: 'Junior Full Stack'
+    job: 5,
+    description: 'Tech Stack: mongodb, express, react, node',
+    experience: 0,
+    title: 'Junior Full Stack'
   },
   {
-    Job: 6,
-    Description: 'Tech Stack: mongodb, express, angular, node',
-    Experience: 0,
-    Title: 'Entry level Full Stack'
+    job: 6,
+    description: 'Tech Stack: mongodb, express, angular, node',
+    experience: 0,
+    title: 'Entry level Full Stack'
   },
   {
-    Job: 7,
-    Description: 'Tech Stack: mongodb, express, react, node, redux',
-    Experience: 2,
-    Title: 'Full Stack React'
+    job: 7,
+    description: 'Tech Stack: mongodb, express, react, node, redux',
+    experience: 2,
+    title: 'Full Stack React'
   },
   {
-    Job: 8,
-    Description: 'Tech Stack: .NET, C#',
-    Experience: 5,
-    Title: 'Software Developer .Net'
+    job: 8,
+    description: 'Tech Stack: .NET, C#',
+    experience: 5,
+    title: 'Software Developer .Net'
   },
   {
-    Job: 9,
-    Description: 'Tech Stack: not sure',
-    Experience: 3,
-    Title: 'Full Stack, Ruby'
+    job: 9,
+    description: 'Tech Stack: not sure',
+    experience: 3,
+    title: 'Full Stack, Ruby'
   },
   {
-    Job: 10,
-    Description: 'Tech Stack: not sure something about spring?',
-    Experience: 5,
-    Title: 'Full Stack Java Dev'
+    job: 10,
+    description: 'Tech Stack: not sure something about spring?',
+    experience: 5,
+    title: 'Full Stack Java Dev'
   }
 ]
