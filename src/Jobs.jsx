@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import JobPosting from './JobPosting.jsx';
 import JobsApplied from './JobsApplied.jsx';
+import axios from 'axios';
 
 function Jobs({jobs, user}) {
   const [appliedFor, setAppliedFor] = useState([])
