@@ -102,8 +102,8 @@ function Jobs({jobs, user}) {
 
   return (
     <div className="jobs">
-      {!showApplied && <h1>{`Jobs for user ${user}`}</h1>}
-      {showApplied && <h1>{`User ${user} Applied to ${appliedFor.length} Jobs`}</h1>}
+      {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped': user}`}</h1>}
+      {showApplied && <h1>{`User ${user === -1 ? 'loggin skipped': user} Applied to ${appliedFor.length} Jobs`}</h1>}
       <h2>This is a front end only demo, so nothing will save if you leave the site or refresh</h2>
       <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
       {!showApplied && <button className="applied" onClick={displayApplied}>view Jobs Applied to</button>}

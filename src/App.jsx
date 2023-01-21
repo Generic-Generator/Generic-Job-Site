@@ -18,7 +18,7 @@ function App() {
   const getJobs = () => {
     axios.get('/jobs')
     .then((res) => {
-      setJobs(res.data)
+      setJobs(res.data.rows)
     })
     .catch((err) => {
       console.log('error getting jobs from server') //keep err out for security, but can log if error occurs
