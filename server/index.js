@@ -73,5 +73,5 @@ app.delete('/clear/:id', (req, res) => {
   })
 })
 
-app.listen(3004);
-console.log('Listening on port 3004');
+app.listen(3007);
+console.log('Listening on port 3007');

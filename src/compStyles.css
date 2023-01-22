@@ -210,3 +210,7 @@ p {
   background: red;
   margin: 15px;
 }
+
+#root {
+  margin-bottom: 20px;
+}
