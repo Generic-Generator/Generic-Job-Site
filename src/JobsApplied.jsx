@@ -27,7 +27,7 @@ function JobsApplied({applied, user, clear}) {
       />)
     })}
     {applied.length > 0 && <div><h2>Warning:  the button below will clear your applied to history</h2><button onClick={clearApplied} className='warning'>UnApply to All Jobs!!!</button></div>}
-    {applied.length === 0 && <div>It Does Not Appear You Have Applied To Any Jobs This Session</div>}
+    {applied.length === 0 && <div>You Are Not Applied To Any Jobs At The Moment</div>}
     </div>
   )
 }
