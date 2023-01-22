@@ -13,7 +13,7 @@ function JobPosting({job, applied, addApplied, ind, user}) {
   const applyNow = () => {
     axios.post('/apply', {user: user, job: job.job})
     .then((res) => {
-    addApplied(job)
+    addApplied()
     setApplying(!applying)
     })
     .catch((err) => {

@@ -17,6 +17,23 @@ function Jobs({jobs, user}) {
     setShowApplied(!showApplied)
   }
 
+  const getApplied = () => {
+    axios.get(`/applied/${user}`)
+    .then((res) => {
+      let results = res.data.rows[0].applied
+      if(results.length === 0){
+        setAppliedFor([]);
+      } else {
+        let appliedJobs = results.map((job) => {return jobs[job - 1]})
+      setAppliedFor(appliedJobs);
+      }
+
+    })
+    .catch((err) => {
+      console.log('error getting jobs applied to', err)
+    })
+  }
+
   const interpretSearch = (e) => {
     setSearched(e.target.value)
   }
@@ -90,7 +107,7 @@ function Jobs({jobs, user}) {
   useEffect(() => {
     let notAppliedHolder = []
     let appliedJobs = appliedFor.map((job) => {return job.job})
-    notApplied.forEach((job) => {
+    jobs.forEach((job) => {
       if (appliedJobs.indexOf(job.job) === -1) {
         notAppliedHolder.push(job);
       }
@@ -100,11 +117,14 @@ function Jobs({jobs, user}) {
 
   }, [appliedFor])
 
+  useEffect(() => {
+    getApplied()
+  }, [])
+
   return (
     <div className="jobs">
       {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped': user}`}</h1>}
       {showApplied && <h1>{`User ${user === -1 ? 'loggin skipped': user} Applied to ${appliedFor.length} Jobs`}</h1>}
-      <h2>This is a front end only demo, so nothing will save if you leave the site or refresh</h2>
       <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
       {!showApplied && <button className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
       {showApplied && <button className="applied" onClick={displayApplied}>view Job Openings</button>}
@@ -131,16 +151,16 @@ function Jobs({jobs, user}) {
 
         {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
         {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
-      {showApplied && <JobsApplied applied={appliedFor} user={user}/>}
+      {showApplied && <JobsApplied applied={appliedFor} user={user} clear={() => {getApplied()}}/>}
       {!showApplied && (!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
         return (
-        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => {getApplied()}} />
         )
         })}
         {!showApplied && (!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
         {!showApplied && (searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
         return (
-        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => {getApplied()}} />
         )
         })}
         {!showApplied && (searching || searchingXp) && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}

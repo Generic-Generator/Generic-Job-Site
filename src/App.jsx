@@ -75,21 +75,21 @@ function App() {
         <div>
           {!loggedIn && <div className='overview'>
             <h1>Generic Job Site Demo</h1>
-            <h2>To speed run or view the front end only demo click below</h2>
-            <button onClick={loginSkipped}>Skip Login</button>
-            <h2>Back end demo with user login input sanitization</h2>
+            {/* <h2>To speed run or view the front end only demo click below</h2>
+            <button onClick={loginSkipped}>Skip Login</button> */}
+
             <p>Authentication is held off for now due to a lack of funding. ssl certificates are the main cost I am trying to avoid deploing with authentication. I am also using this EC2 instance for as many projects as possible to reduce the hours used while deployed. Therefore, photos are not used to save on the limited memory available. The back end is also limited to keep data size down, but should be enough to show I can deploy a functional back end.
-              <br />
-              <br />
+            <h2>Demo starts with user login input sanitization</h2>
+
               This login screen is set up in preparation to recieve a user id after authentication. To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field and limited the length to a max of 3 digits. </p>
             <div>
-              <input name="userID" type="text" placeholder="Input a 'user id' number, 8 digits or less"  onChange={updateUser}></input>
+              <input name="userID" type="text" placeholder="Input a 'user id' number, 3 digits or less"  onChange={updateUser}></input>
               <button onClick={loggingIn}>Login to view job postings</button>
             </div>
 
           </div>}
           {loggedIn && <Jobs jobs={jobs} user={loggedInUser} />}
-          {!loggedIn && <div><br/><br/>last updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
+          {!loggedIn && <div><br/><br/>last updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>

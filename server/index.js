@@ -39,7 +39,6 @@ app.get('/applied/:id', (req, res) => {
     if (err) {
       console.log('error retrieving applied to:', err);
     }
-    console.log(data.rows[0].applied)
     res.send(data)
   })
 })

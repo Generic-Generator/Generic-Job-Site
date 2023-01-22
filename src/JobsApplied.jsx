@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import Accordion from './accordion.js';
 import axios from 'axios';
 
-function JobsApplied({applied, user}) {
+function JobsApplied({applied, user, clear}) {
 
   const clearApplied = () => {
     axios.delete(`/clear/${user}`)
     .then((res) => {
-      console.log('should be cleared, then add setapplied function')
+      clear()
     })
     .catch((err) => {
       console.log('error clearing applied history')
@@ -26,7 +26,7 @@ function JobsApplied({applied, user}) {
         ind={i}
       />)
     })}
-    {applied.length > 0 && <div><button onClick={clearApplied} className='warning'>Warning: UnApply to All Jobs!!!</button></div>}
+    {applied.length > 0 && <div><h2>Warning:  the button below will clear your applied to history</h2><button onClick={clearApplied} className='warning'>UnApply to All Jobs!!!</button></div>}
     {applied.length === 0 && <div>It Does Not Appear You Have Applied To Any Jobs This Session</div>}
     </div>
   )
