@@ -38,6 +38,16 @@ function App() {
     setUser(e.target.value);
   }
 
+  const postUser = () => {
+    axios.post('/user', {user: user})
+    .then((res) => {
+      setLoggedIn(!loggedIn)
+    })
+    .catch((err) => {
+      console.log('error loging in user')
+    })
+  }
+
   const loggingIn = () => {
     if(user.length > 3) {
       alert("user id must be a positive whole number 3 digits or less")
@@ -45,7 +55,7 @@ function App() {
     }
     if (user.length > 0 && user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
       setLoggedInUser(Number(user)) // now that it's verified turn into number for queries
-      setLoggedIn(!loggedIn)
+      postUser()
     } else {
       alert("user id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
     }

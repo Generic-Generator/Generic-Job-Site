@@ -131,16 +131,16 @@ function Jobs({jobs, user}) {
 
         {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
         {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
-      {showApplied && <JobsApplied applied={appliedFor}/>}
+      {showApplied && <JobsApplied applied={appliedFor} user={user}/>}
       {!showApplied && (!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
         return (
-        <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
         {!showApplied && (!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
         {!showApplied && (searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
         return (
-        <JobPosting key={i} ind={i} job={job} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
+        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={(job) => {setAppliedFor(appliedFor.concat([job]))}} />
         )
         })}
         {!showApplied && (searching || searchingXp) && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}

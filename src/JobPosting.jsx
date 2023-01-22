@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import Modal from './modal.js';
+import axios from 'axios';
 
-function JobPosting({job, applied, addApplied, ind}) {
+function JobPosting({job, applied, addApplied, ind, user}) {
 
   const [applying, setApplying] = useState(false);
 
@@ -10,8 +11,14 @@ function JobPosting({job, applied, addApplied, ind}) {
   }
 
   const applyNow = () => {
+    axios.post('/apply', {user: user, job: job.job})
+    .then((res) => {
     addApplied(job)
     setApplying(!applying)
+    })
+    .catch((err) => {
+      console.log('error applying')
+    })
   }
 
   return (
