@@ -15,7 +15,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE applied (
-  user INTEGER NOT NULL DEFAULT NULL REFERENCES users (user_num),
+  user_num INTEGER NOT NULL DEFAULT NULL REFERENCES users (user_num),
   job INTEGER NOT NULL DEFAULT NULL REFERENCES jobs (id)
 );
 

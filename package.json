@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/rocknswimmer/Generic-Job-Site#readme",
   "dependencies": {
+    "axios": "^1.2.3",
     "compression": "^1.7.4",
     "compression-webpack-plugin": "^10.0.0",
     "dotenv": "^16.0.3",
