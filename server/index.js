@@ -12,7 +12,7 @@ const pool = new Pool({
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   port: process.env.PGPORT,
-  pass: process.env.PGPORT
+  // password: process.env.PGPASSWORD // this was a hard typo to find in the terminal
 });
 
 app.use(express.json());
@@ -28,7 +28,7 @@ app.get('/1', (req, res) => {
 app.get('/jobs', (req, res) => {
   pool.query('select id as job, title as title, descript as description, experience as experience from jobs', (err, data) => {
     if (err) {
-      console.log('error retrieving runners from db: ', err);
+      console.log('error retrieving jobs from db: ', err);
     }
     res.send(data);
   })
