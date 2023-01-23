@@ -102,7 +102,7 @@ function Jobs({jobs, user}) {
   useEffect(() => {
     searchedJobMaker();
 
-  }, [exp, notApplied])
+  }, [exp, notApplied, searched])
 
   useEffect(() => {
     let notAppliedHolder = []
