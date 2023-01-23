@@ -15,6 +15,7 @@ function Jobs({jobs, user}) {
 
   const displayApplied = () => {
     setShowApplied(!showApplied)
+    setExp(-1)
   }
 
   const getApplied = () => {
@@ -102,7 +103,7 @@ function Jobs({jobs, user}) {
   useEffect(() => {
     searchedJobMaker();
 
-  }, [exp, notApplied])
+  }, [exp, notApplied, searched])
 
   useEffect(() => {
     let notAppliedHolder = []
