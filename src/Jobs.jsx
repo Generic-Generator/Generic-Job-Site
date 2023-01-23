@@ -15,6 +15,7 @@ function Jobs({jobs, user}) {
 
   const displayApplied = () => {
     setShowApplied(!showApplied)
+    setExp(-1)
   }
 
   const getApplied = () => {
