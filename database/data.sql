@@ -2,16 +2,23 @@
 DROP TABLE IF EXISTS applied;
 DROP TABLE IF EXISTS jobs;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS posters;
+
+
+CREATE TABLE users (
+  user_num INTEGER UNIQUE NOT NULL DEFAULT NULL
+);
+
+CREATE TABLE posters (
+  poster INTEGER UNIQUE NOT NULL DEFAULT NULL
+);
 
 CREATE TABLE jobs (
   id SERIAL PRIMARY KEY,
   title VARCHAR(100) NOT NULL DEFAULT NULL,
   descript VARCHAR(1000) NOT NULL DEFAULT NULL,
-  experience INTEGER NOT NULL DEFAULT NULL
-);
-
-CREATE TABLE users (
-  user_num INTEGER UNIQUE NOT NULL DEFAULT NULL
+  experience INTEGER NOT NULL DEFAULT NULL,
+  poster INTEGER NOT NULL DEFAULT 10 REFERENCES posters (poster)
 );
 
 CREATE TABLE applied (
@@ -19,6 +26,7 @@ CREATE TABLE applied (
   job INTEGER NOT NULL DEFAULT NULL REFERENCES jobs (id)
 );
 
+insert into posters (poster) values (10) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack I', 'Tech Stack: mongodb, express, angular, node', 0) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack II', 'Tech Stack: mongodb, express, react, node', 2) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack III', 'Tech Stack: mongodb, express, react, node', 4) returning *;

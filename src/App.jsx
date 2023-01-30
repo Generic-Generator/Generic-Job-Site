@@ -79,11 +79,20 @@ function App() {
     }
     if (poster.length > 0 && digits.indexOf(poster) !== -1) {
       setLoggedInPoster(Number(poster)) // now that it's verified turn into number for queries
-      // postUser()
-      setPosterIn(!posterIn);
+      postPoster();
     } else {
       alert("poster id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
     }
+  }
+
+  const postPoster = () => {
+    axios.post('/poster', {poster: poster})
+    .then((res) => {
+      setPosterIn(!posterIn)
+    })
+    .catch((err) => {
+      console.log('error loging in user')
+    })
   }
 
   const updatePoster = (e) => {
