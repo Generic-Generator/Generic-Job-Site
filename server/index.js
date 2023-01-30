@@ -54,6 +54,16 @@ app.post('/user', (req, res) => {
   })
 })
 
+app.post('/poster', (req, res) => {
+  const {poster} = req.body;
+  pool.query('insert into posters (poster) values ($1) on conflict do nothing returning *', [poster], (err, data) => {
+    if (err) {
+      console.log('error adding poster', err)
+    }
+    res.send(`poster logged in`)
+  })
+})
+
 app.post('/apply', (req, res) => {
   const {user, job} = req.body;
   pool.query('insert into applied (user_num, job) values ($1, $2) returning *', [user, job], (err, data) => {
