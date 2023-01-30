@@ -6,6 +6,7 @@ function Poster({poster}) {
   const [addPosting, setAddPosting] = useState(false)
 
   const createJob = () => {
+    console.log('posting')
     setAddPosting(!addPosting)
   }
 
@@ -17,7 +18,11 @@ function Poster({poster}) {
     {[11,12,13,14].map((x,y,z) => {
       return (<div>{z[y]}</div>)
     })}
-    {addPosting && <div>modal will go here</div>}
+    {addPosting && <Modal close={createJob} content={
+      <div>
+        form to go here
+      </div>
+    }/>}
     </div>
   )
 }
