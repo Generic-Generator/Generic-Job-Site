@@ -4,7 +4,11 @@ import Accordion from './accordion.js';
 
 function Poster({poster}) {
   const [addPosting, setAddPosting] = useState(false)
-  const [exp, setExp] = useState(-1);
+  const [exp, setExp] = useState(-1)
+  const [title, setTitle] = useState('')
+  const [description, setDescription] =  useState('')
+  const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,'.split('')
+  const [postings, setPostings] = useState([])
 
   const createJob = () => {
     setAddPosting(!addPosting)
@@ -18,12 +22,25 @@ function Poster({poster}) {
     setExp(Number(e.target.value));
   }
 
+  const typedTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+  const typedDescription = (e) => {
+    setDescription(e.target.value)
+  }
+
   const submitJob = (e) => {
     e.preventDefault();
 
-    console.log('form submit without refresh', exp)
-
-    e.currentTarget.reset();// redundant when the modal will close and clear the form anyways
+    if((title.length > 0 && title.length <= 100) && (description.length > 0 && description.length <= 300) && exp > -1
+    && title.split('').every((char) => {return allowed.indexOf(char) !== -1})
+    && description.split('').every((char) => {return allowed.indexOf(char) !== -1})) {
+      console.log(`will post with title: ${title}, desc: ${description}, and exp: ${exp}`)
+      setAddPosting(false)
+    } else {
+      alert(`Description and title can only contain letters, spaces, periods and commas, and all 3 sections on the form must be filled to post a job. for referecnce approved characters are ${allowed}`)
+    }
   }
 
   return (
@@ -31,17 +48,18 @@ function Poster({poster}) {
     <h1>{`Welcome Poster ${poster}`}</h1>
     <button onClick={createJob}>post a new job</button>
     <h2>Created Jobs</h2>
-    {[11,12,13,14].map((x,y,z) => {
+    {postings.length > 0 && postings.map((x,y,z) => {
       return (<div>{z[y]}</div>)
     })}
+    {postings.length === 0 && <div>There are no job postings active for your company</div>}
     {addPosting && <Modal close={createJob} content={
       <div>
         <form onSubmit={submitJob}>
           <lable>Job Title</lable>
-          <input type="text" placeholder="Software Engineer"></input>
+          <input type="text" placeholder="Software Engineer" onChange={typedTitle}></input>
           <br/>
           <lable>Job Description</lable>
-          <input type="text" placeholder="list the tech stack"></input>
+          <input type="text" placeholder="list the tech stack" onChange={typedDescription}></input>
           <br/>
           <label className="xp-label">Required Years of Experience:</label>
           <select name="exp" onChange={interpretExp}>
