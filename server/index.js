@@ -84,5 +84,15 @@ app.delete('/clear/:id', (req, res) => {
   })
 })
 
+app.post('/postJob', (req, res) => {
+  const {title, description, exp, poster} = req.body;
+  pool.query('insert into jobs (title, descript, experience, poster) values ($1, $2, $3, $4) returning *', [title, description, exp, poster], (err, data) => {
+    if(err) {
+      console.log('error posting job', err)
+    }
+    res.send('posted job')
+  })
+})
+
 app.listen(3007);
 console.log('Listening on port 3007');

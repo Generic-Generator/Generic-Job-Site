@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Modal from './modal.js';
 import Accordion from './accordion.js';
+import axios from 'axios';
 
 function Poster({poster}) {
   const [addPosting, setAddPosting] = useState(false)
@@ -36,8 +37,16 @@ function Poster({poster}) {
     if((title.length > 0 && title.length <= 100) && (description.length > 0 && description.length <= 300) && exp > -1
     && title.split('').every((char) => {return allowed.indexOf(char) !== -1})
     && description.split('').every((char) => {return allowed.indexOf(char) !== -1})) {
-      console.log(`will post with title: ${title}, desc: ${description}, and exp: ${exp}`)
-      setAddPosting(false)
+      axios.post('/postJob', {title: title, description: description, exp: exp, poster: poster})
+      .then((res) => {
+        console.log(res);
+        setAddPosting(false)
+      })
+      .catch((err) => {
+        console.log('error posting job')
+      })
+      // console.log(`will post with title: ${title}, desc: ${description}, and exp: ${exp} by ${poster}`)// reminder to pass in poster id
+      // setAddPosting(false)
     } else {
       alert(`Description and title can only contain letters, spaces, periods and commas, and all 3 sections on the form must be filled to post a job. for referecnce approved characters are ${allowed}`)
     }
