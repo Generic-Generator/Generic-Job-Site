@@ -94,5 +94,25 @@ app.post('/postJob', (req, res) => {
   })
 })
 
+app.get('/posted/:id', (req, res) => {
+  const poster = req.params.id;
+  pool.query('select id as job, title as title, descript as description, experience as experience from jobs where poster = $1', [poster], (err, data) => {
+    if (err) {
+      console.log('error retrieving posted jobs:', err);
+    }
+    res.send(data)
+  })
+})
+
+app.delete('/delete/:job', (req, res) => {
+  const job = req.params.job;
+  pool.query('delete from jobs where id = $1', [job], (err, data) => {
+    if(err){
+      console.log('error deleting job posting', err)
+    }
+    res.send('deleted posting')
+  })
+})
+
 app.listen(3007);
 console.log('Listening on port 3007');

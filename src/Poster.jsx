@@ -2,14 +2,29 @@ import React, {useState, useEffect} from 'react';
 import Modal from './modal.js';
 import Accordion from './accordion.js';
 import axios from 'axios';
+import PosterPosting from './PosterPosting.jsx';
 
 function Poster({poster}) {
   const [addPosting, setAddPosting] = useState(false)
   const [exp, setExp] = useState(-1)
   const [title, setTitle] = useState('')
   const [description, setDescription] =  useState('')
-  const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,'.split('')
+  const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,?!'.split('')
   const [postings, setPostings] = useState([])
+
+  const getPostings = () => {
+    axios.get(`/posted/${poster}`)
+    .then((res) => {
+      setPostings(res.data.rows)
+    })
+    .catch((err) => {
+      console.log('error retrieving postings')
+    })
+  }
+
+  useEffect(() => {
+    getPostings()
+  }, [])
 
   const createJob = () => {
     setAddPosting(!addPosting)
@@ -39,7 +54,8 @@ function Poster({poster}) {
     && description.split('').every((char) => {return allowed.indexOf(char) !== -1})) {
       axios.post('/postJob', {title: title, description: description, exp: exp, poster: poster})
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        getPostings()
         setAddPosting(false)
       })
       .catch((err) => {
@@ -48,17 +64,19 @@ function Poster({poster}) {
       // console.log(`will post with title: ${title}, desc: ${description}, and exp: ${exp} by ${poster}`)// reminder to pass in poster id
       // setAddPosting(false)
     } else {
-      alert(`Description and title can only contain letters, spaces, periods and commas, and all 3 sections on the form must be filled to post a job. for referecnce approved characters are ${allowed}`)
+      alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. for referecnce approved characters are ${allowed}`)
     }
   }
 
   return (
     <div>
     <h1>{`Welcome Poster ${poster}`}</h1>
-    <button onClick={createJob}>post a new job</button>
+    <h3>You can use the button below to create new job postings if you have less than 4</h3>
+    {postings.length < 4 && <button onClick={createJob}>post a new job</button>}
     <h2>Created Jobs</h2>
-    {postings.length > 0 && postings.map((x,y,z) => {
-      return (<div>{z[y]}</div>)
+    <h3>You can see who has applied to your postings and edit/delete the posting if you click the view posting button</h3>
+    {postings.length > 0 && postings.map((job, i) => {
+      return (<PosterPosting key={i} job={job} ind={i} poster={poster} update={() => {getPostings()}} />)
     })}
     {postings.length === 0 && <div>There are no job postings active for your company</div>}
     {addPosting && <Modal close={createJob} content={
