@@ -114,5 +114,16 @@ app.delete('/delete/:job', (req, res) => {
   })
 })
 
+app.put('/edit', (req, res) => {
+  const {job, title, description, exp} = req.body;
+
+  pool.query('update jobs set title = $2, descript = $3, experience = $4 where id = $1 returning *', [job, title, description, exp], (err, data) => {
+    if(err) {
+      console.log('error updating posting: ', err)
+    }
+    res.send('edited job posting')
+  } )
+})
+
 app.listen(3007);
 console.log('Listening on port 3007');

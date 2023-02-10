@@ -15,7 +15,16 @@ function Poster({poster}) {
   const getPostings = () => {
     axios.get(`/posted/${poster}`)
     .then((res) => {
-      setPostings(res.data.rows)
+      let ordered = res.data.rows.sort((a,b) => {
+        if(a.job > b.job){
+          return 1
+        }
+        if(a.job < b.job) {
+          return -1
+        }
+        return 0
+      })
+      setPostings(ordered)
     })
     .catch((err) => {
       console.log('error retrieving postings')
