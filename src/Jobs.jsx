@@ -22,12 +22,6 @@ function Jobs({jobs, user}) {
     axios.get(`/applied/${user}`)
     .then((res) => {
       let results = res.data.rows
-      // if(results.length === 0){
-      //   setAppliedFor([]);
-      // } else {
-      //   let appliedJobs = results.map((job) => {return jobs[job - 1]})
-      // setAppliedFor(appliedJobs);
-      // }
       setAppliedFor(results)
     })
     .catch((err) => {
