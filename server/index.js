@@ -33,10 +33,10 @@ app.get('/jobs', (req, res) => {
     res.send(data);
   })
 });
-
+// `select Coalesce(((select json_agg(job) from applied where user_num = $1)), '[]'::json) as applied`
 app.get('/applied/:id', (req, res) => {
   const user = req.params.id;
-  pool.query(`select Coalesce(((select json_agg(job) from applied where user_num = $1)), '[]'::json) as applied`, [user], (err, data) => {
+  pool.query('select id as job, title as title, descript as description, experience as experience from jobs where id in (select job from applied where user_num =$1)', [user], (err, data) => {
     if (err) {
       console.log('error retrieving applied to:', err);
     }
