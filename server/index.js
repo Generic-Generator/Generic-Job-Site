@@ -96,7 +96,7 @@ app.post('/postJob', (req, res) => {
 
 app.get('/posted/:id', (req, res) => {
   const poster = req.params.id;
-  pool.query('select id as job, title as title, descript as description, experience as experience from jobs where poster = $1', [poster], (err, data) => {
+  pool.query("select id as job, title as title, descript as description, experience as experience, Coalesce(((select json_agg(user_num) from applied where job = id)), '[]'::json) as applicants from jobs where poster = $1", [poster], (err, data) => {
     if (err) {
       console.log('error retrieving posted jobs:', err);
     }

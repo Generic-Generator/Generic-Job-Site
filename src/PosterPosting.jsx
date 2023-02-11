@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Modal from './modal.js';
+import Accordion from './accordion.js';
 import axios from 'axios';
 
 function PosterPosting({job, ind, poster, update}) {
@@ -23,16 +24,11 @@ function PosterPosting({job, ind, poster, update}) {
   const [checkDelete, setCheckDelete] = useState(false);
   const [edit, setEdit] = useState(false);
 
-  const viewPost = () => {
-    setviewing(!viewing)
-  }
-
   const deletePosting = () => {
     axios.delete(`/delete/${job.job}`)
     .then((res) => {
       update()
       doubleCheckDelete()
-      viewPost()
     })
     .catch((err) => {
       console.log('error deleting job posting')
@@ -68,23 +64,19 @@ if((title.length > 0 && title.length <= 100) && (description.length > 0 && descr
 
   return (
     <div>
-    <div className={`posting${(ind % 2 === 0) ? " even" : ""}`}>
-          <h1 className="title">{`${job.title}`}</h1>
-          <button onClick={viewPost}>View Posting</button>
-    </div>
-    {viewing && <Modal close={() => {viewPost()}} content={
-      <div>
-        <h1>{`${job.title}`}</h1>
-        <p>{job.description}</p>
-      <br/>
-      <p>{`Experience: ${job.experience} Years`}</p>
-      <br/>
-      <p>will put array of applied to here</p>
-      <br/>
-      <button onClick={startEdit} >Edit Posting</button>
-      <button onClick={doubleCheckDelete} >Delete Posting</button>
-      </div>}
-      />}
+    <Accordion
+        title={<h2 className="title">{job.title}</h2>}
+        content={
+        <div>
+          <p>{`Description: ${job.description}`}</p>
+          <p>{`Experience: ${job.experience} Years`}</p>
+          <p>{`Applicants: ${job.applicants.length > 0 ? job.applicants : 'no applicants yet' }`}</p>
+          <button onClick={startEdit} >Edit Posting</button>
+          <button onClick={doubleCheckDelete} >Delete Posting</button>
+          </div>}
+        ind={ind}
+      />
+
       {checkDelete && <Modal close={() => {doubleCheckDelete()}} content={
         <div>
           <h1>Are You Sure You Want To Delete This Posting?</h1>

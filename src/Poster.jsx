@@ -79,11 +79,11 @@ function Poster({poster}) {
 
   return (
     <div>
-    <h1>{`Welcome Poster ${poster}`}</h1>
-    <h3>You can use the button below to create new job postings if you have less than 4</h3>
-    {postings.length < 4 && <button onClick={createJob}>post a new job</button>}
-    <h2>Created Jobs</h2>
-    <h3>You can see who has applied to your postings and edit/delete the posting if you click the view posting button</h3>
+    <h1 className="center">{`Welcome Poster ${poster}`}</h1>
+    <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>
+    {postings.length < 4 && <div className="overview"><button onClick={createJob}>post a new job</button></div>}
+    <h2 className="center">Created Jobs</h2>
+    <h3 className="center">You can see who has applied to your postings and edit/delete the posting if you by clicking on the job </h3>
     {postings.length > 0 && postings.map((job, i) => {
       return (<PosterPosting key={i} job={job} ind={i} poster={poster} update={() => {getPostings()}} />)
     })}
