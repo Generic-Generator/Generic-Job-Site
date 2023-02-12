@@ -9,9 +9,9 @@ I hope this demo is a more accurate way to evaluate my skills than watching an e
 
 Login Walkthrough
 
-
 This is set up in preparation for authentication, which would spit out a user id only for sercurity purposes. I have white listed digits 0-9 and an alert will appear if a value that is not all digits is entered in the field or the log in is too long. Applicants can have up to 3 digits for thier ID, while posters are limited to 1 digit since they can add job postings.
 
+Dark/Light mode toggle in upper right hand of the header bar.
 
 Applicant Features Walkthrough
 
