@@ -58,7 +58,7 @@ if((title.length > 0 && title.length <= 100) && (description.length > 0 && descr
       })
     }
     else {
-      alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. for referecnce approved characters are ${allowed}`)
+      alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. The tilte must be 100 characters or less and the description must be 300 or less characters. for referecnce approved characters are ${allowed}`)
     }
   }
 
@@ -88,9 +88,11 @@ if((title.length > 0 && title.length <= 100) && (description.length > 0 && descr
           <form onSubmit={submitEdit}>
           <lable>Job Title</lable>
           <input type="text" defaultValue={job.title} onChange={typedTitle}></input>
+          <span>{`${title.length}/100`}</span>
           <br/>
           <lable>Job Description</lable>
           <input type="text" defaultValue={job.description} onChange={typedDescription}></input>
+          <span>{`${description.length}/300`}</span>
           <br/>
           <label className="xp-label">Required Years of Experience:</label>
           <select name="exp" onChange={interpretExp} defaultValue={job.experience}>

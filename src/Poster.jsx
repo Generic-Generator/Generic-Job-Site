@@ -73,7 +73,7 @@ function Poster({poster}) {
       // console.log(`will post with title: ${title}, desc: ${description}, and exp: ${exp} by ${poster}`)// reminder to pass in poster id
       // setAddPosting(false)
     } else {
-      alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. for referecnce approved characters are ${allowed}`)
+      alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. The tilte must be 100 characters or less and the description must be 300 or less characters. for referecnce approved characters are ${allowed}`)
     }
   }
 
@@ -93,9 +93,11 @@ function Poster({poster}) {
         <form onSubmit={submitJob}>
           <lable>Job Title</lable>
           <input type="text" placeholder="Software Engineer" onChange={typedTitle}></input>
+          <span>{`${title.length}/100`}</span>
           <br/>
           <lable>Job Description</lable>
           <input type="text" placeholder="list the tech stack" onChange={typedDescription}></input>
+          <span>{`${description.length}/300`}</span>
           <br/>
           <label className="xp-label">Required Years of Experience:</label>
           <select name="exp" onChange={interpretExp}>
