@@ -12,7 +12,7 @@ const pool = new Pool({
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   port: process.env.PGPORT,
-  // password: process.env.PGPASSWORD // this was a hard typo to find in the terminal
+  password: process.env.PGPASSWORD // this was a hard typo to find in the terminal
 });
 
 app.use(express.json());
