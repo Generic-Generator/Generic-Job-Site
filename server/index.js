@@ -106,13 +106,19 @@ app.get('/posted/:id', (req, res) => {
 
 app.delete('/delete/:job', (req, res) => {
   const job = req.params.job;
-  pool.query('delete from jobs where id = $1', [job], (err, data) => {
-    if(err){
-      console.log('error deleting job posting', err)
+  pool.query('delete from applied where job = $1', [job], (err, data) => {
+    if (err) {
+      console.log('error unapplying', err)
     }
-    res.send('deleted posting')
+    pool.query('delete from jobs where id = $1', [job], (err, data) => {
+      if (err) {
+        console.log('error deleting job posting', err)
+      }
+      res.send('deleted posting')
+    })
   })
 })
+
 
 app.put('/edit', (req, res) => {
   const {job, title, description, exp} = req.body;
