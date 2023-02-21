@@ -110,9 +110,7 @@ function App() {
             {/* <h2>To speed run or view the front end only demo click below</h2>
             <button onClick={loginSkipped}>Skip Login</button> */}
 
-            <p>Authentication is held off for now due to a lack of funding. ssl certificates are the main cost I am trying to avoid deploing with authentication. I am also using this EC2 instance for as many projects as possible to reduce the hours used while deployed. Therefore, photos are not used to save on the limited memory available. The back end is also limited to keep data size down, but should be enough to show I can deploy a functional back end.
-              <br/>
-              <br/>
+            <p>
 This login screen is set up in preparation to recieve a user or poster id  after authentication. To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field and limited the length to a max of 3 digits. The job poster input field is similarly restricted to digits 0-9 but is limited to 1 digit to limit demo tester job postings.
 
 
