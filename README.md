@@ -5,7 +5,7 @@ Devoloping an MVP for a Job Search site since I have been on quite a few and hav
 New Demo: [FULL STACK DEMO](http://52.21.107.140:3007/)
 New Job Poster Feature added 2/11/23!
 
-I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap.
+I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap. I have kept functionality at the top of the priority list for this project. Style has been kept to a minimum because the issues I want to fix on job sites are all issues of functionality.
 
 Login Walkthrough
 
