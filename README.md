@@ -5,7 +5,7 @@ Devoloping an MVP for a Job Search site since I have been on quite a few and hav
 New Demo: [FULL STACK DEMO](http://52.21.107.140:3007/)
 New Job Poster Feature added 2/11/23!
 
-I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap. I have kept functionality at the top of the priority list for this project. Style has been kept to a minimum because the issues I want to fix on job sites are all issues of functionality.
+I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap. Style has been kept to a minimum because the issues I want to fix on other job sites are all issues of functionality, and sucessful job sites are similarly minimal in style. I looked up to see if a competitor had a dark mode, and found out it is hidden inside the user settings. While that means I don't have a style improvement, my switch in the header is more accessable to users.
 
 Login Walkthrough
 
