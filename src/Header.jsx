@@ -27,7 +27,7 @@ const Header = ({ theme, themeToggler}) => {
 
   return (
     <HeaderContainer>
-      <h1>Job Finder Demo 1.3.1</h1>
+      <h1>Job Finder Demo 1.3.2</h1>
       <label className="switch">
         <input
           type="checkbox"
