@@ -115,23 +115,30 @@ This login screen is set up in preparation to recieve a user or poster id  after
 
 
                </p>
+               <div className="demos">
+                <div className="applicants">
                <h2>Job Hunter Demo</h2>
-            <div>
+            <div className="login">
               <input name="userID" type="text" placeholder="Input a 'user id' number, 3 digits or less"  onChange={updateUser}></input>
+              <br/>
               <button onClick={loggingIn}>Login to view job postings</button>
             </div>
-
+            </div>
+            <div className="posters">
             <h2>Job Poster Demo</h2>
 
-            <div>
+            <div className="login">
               <input name="posterID" type="text" placeholder="Input a 'job poster id' number, 1 digit"  onChange={updatePoster}></input>
+              <br/>
               <button onClick={loginPoster}>Login to post jobs</button>
+            </div>
+            </div>
             </div>
 
           </div>}
           {loggedIn && <Jobs jobs={jobs} user={loggedInUser} />}
           {posterIn && <Poster poster={loggedInPoster}/>}
-          {(!loggedIn && !posterIn) && <div><br/><br/>last updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
+          {(!loggedIn && !posterIn) && <div><br/><br/>last updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>

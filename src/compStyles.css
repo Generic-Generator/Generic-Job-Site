@@ -140,9 +140,7 @@ button {
   color: rgb(223, 222, 222)
 }
 
-input {
-  width: 25em;
-}
+
 
 /* Login Page styles */
 .overview {
@@ -217,4 +215,49 @@ p {
 
 .center {
   text-align: center;
+}
+
+.demos {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.applicants {
+  color:#1F2224;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #28d7d7;
+  min-height: 40vh;
+  min-width: 45%;
+  margin: 5px;
+  border: 2px solid gray;
+  border-radius: 5% 35% 35% 5%;
+}
+
+.posters {
+  color:#1F2224;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #29b8ff;
+  min-height: 40vh;
+  min-width: 45%;
+  margin: 5px;
+  border: 2px solid gray;
+  /* border-radius: 5% 35% 35% 5%; */
+  border-radius: 35% 5% 5% 35%;
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 20em;
 }
