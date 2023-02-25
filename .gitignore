@@ -13,3 +13,5 @@ public/64.bundle.js
 public/978.bundle.js
 public/978.bundle.js.gz
 .env
+
+/coverage
