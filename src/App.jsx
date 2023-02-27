@@ -4,7 +4,7 @@ import {jobData} from './JobData.js';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './globalStyles.js';
 import { lightTheme, darkTheme } from './Themes.js';
-import './compStyles.css';
+// import './compStyles.css';
 import Header from './Header.jsx';
 import axios from 'axios';
 import Poster from './Poster.jsx';

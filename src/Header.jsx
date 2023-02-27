@@ -26,7 +26,7 @@ const Header = ({ theme, themeToggler}) => {
 
 
   return (
-    <HeaderContainer>
+    <HeaderContainer data-testid='header'>
       <h1 className="version">Job Finder Demo 1.3.2</h1>
       <label className="switch">
         <input
