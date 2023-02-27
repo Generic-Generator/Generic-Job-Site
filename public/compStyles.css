@@ -142,16 +142,6 @@ button {
 
 
 
-/* Login Page styles */
-.overview {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-p {
-  max-width: 50em;
-}
 
 /* Job postings Styles */
 
@@ -217,6 +207,17 @@ p {
   text-align: center;
 }
 
+/* Login Page styles */
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  max-width: 50em;
+}
+
 .demos {
   display: flex;
   width: 100%;
@@ -229,13 +230,14 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #28d7d7;
+  /* background-color: #28d7d7; */
   min-height: 40vh;
   min-width: 45%;
   margin: 5px;
   border: 2px solid gray;
   border-radius: 5% 35% 35% 5%;
   max-width: 75%;
+  background-image: radial-gradient(#28d7d7 35%,  #29b8ff 35% 100%);
 }
 
 .posters {
@@ -252,6 +254,7 @@ p {
   /* border-radius: 5% 35% 35% 5%; */
   border-radius: 35% 5% 5% 35%;
   max-width: 75%;
+  background-image: radial-gradient( #29b8ff 35%, #28d7d7 35% 100%);
 }
 
 .login{
@@ -264,6 +267,8 @@ input {
   width: 20em;
   margin: 5px;
 }
+
+/* mobile and ipad changes for better viewing experience */
 
 @media screen and (max-width: 600px){
   .demos {
