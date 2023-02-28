@@ -237,7 +237,8 @@ p {
   border: 2px solid gray;
   border-radius: 5% 35% 35% 5%;
   max-width: 75%;
-  background-image: radial-gradient(#28d7d7 35%,  #29b8ff 35% 100%);
+  background-image: radial-gradient(#28d7d7 35%, #29b8ff 35% 100%);
+  /* background-image: radial-gradient(#28d7d7 33%, grey,  #29b8ff 36% 100%); */
 }
 
 .posters {
@@ -255,6 +256,7 @@ p {
   border-radius: 35% 5% 5% 35%;
   max-width: 75%;
   background-image: radial-gradient( #29b8ff 35%, #28d7d7 35% 100%);
+  /* background-image: radial-gradient( #29b8ff 33%, grey , #28d7d7 36% 100%); */
 }
 
 .login{
