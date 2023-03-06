@@ -67,10 +67,10 @@ function App() {
 
   }
 
-  const loginSkipped = () => {
-    // setUser('login skipped')
-    setLoggedIn(!loggedIn)
-  }
+  // const loginSkipped = () => {
+  //   // setUser('login skipped')
+  //   setLoggedIn(!loggedIn)
+  // }
 
   const loginPoster = () => {
     if(poster.length > 1) {

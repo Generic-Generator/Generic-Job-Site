@@ -27,7 +27,7 @@ function JobPosting({job, applied, addApplied, ind, user}) {
           <h1 className="title">{`${job.title}`}</h1>
           <button onClick={viewPost}>View Posting</button>
     </div>
-    {applying && <Modal close={() => {viewPost()}} content={
+    {applying && <Modal data-testid='applying' close={() => {viewPost()}} content={
       <div>
         <h1>{`${job.title}`}</h1>
         <p>{job.description}</p>
