@@ -10,6 +10,7 @@ import Poster from '../src/Poster.jsx';
 
 axios.defaults.baseURL = 'http://localhost:3007'
 
+
 describe ('first sample test', function() {
   it('should render the header', () => {
     render(<App />)
@@ -20,7 +21,8 @@ describe ('first sample test', function() {
 })
 
 describe ('test of Jobs component', function() {
-  it('should render the header', async () => {
+
+  it('should render the jobs page', async () => {
     render(<Jobs jobs={jobData} user={13}/>)
 
     await screen.findAllByTestId('jobs');
@@ -28,6 +30,23 @@ describe ('test of Jobs component', function() {
   expect(screen.getByTestId('jobs')).toBeDefined();
   })
 
+  it('should render the jobs', async () => {
+    render(<Jobs jobs={jobData} user={13}/>)
+
+    await screen.findAllByTestId('jobpostings');
+
+  expect(screen.getAllByTestId('jobpostings').length).toEqual(10);
+  })
+
+  // it('should switch to applied with no results found', async () => {
+  //   const user = userEvent.setup()
+
+  //   render(<Jobs jobs={jobData} user={13}/>)
+
+  //   await user.click(screen.getByTestId('applied'));
+
+  //   expect(screen.getByTestID('appliedHeading')).toBeDefined();
+  // })
   //need to click to see applied
 
 
