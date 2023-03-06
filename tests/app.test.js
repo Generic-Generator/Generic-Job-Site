@@ -38,15 +38,15 @@ describe ('test of Jobs component', function() {
   expect(screen.getAllByTestId('jobpostings').length).toEqual(10);
   })
 
-  // it('should switch to applied with no results found', async () => {
-  //   const user = userEvent.setup()
+  it('should switch to applied with no results found', async () => {
+    // const user = userEvent.setup()
 
-  //   render(<Jobs jobs={jobData} user={13}/>)
+    render(<Jobs jobs={jobData} user={13}/>)
 
-  //   await user.click(screen.getByTestId('applied'));
+    await userEvent.click(screen.getByTestId('seeapplied'));
 
-  //   expect(screen.getByTestID('appliedHeading')).toBeDefined();
-  // })
+    expect(screen.getByTestId('appliedHeading')).toBeDefined();
+  })
   //need to click to see applied
 
 
