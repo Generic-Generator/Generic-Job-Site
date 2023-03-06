@@ -63,7 +63,7 @@ if((title.length > 0 && title.length <= 100) && (description.length > 0 && descr
   }
 
   return (
-    <div>
+    <div data-testid='posting'>
     <Accordion
         title={<h2 className="title">{job.title}</h2>}
         content={

@@ -119,10 +119,10 @@ function Jobs({jobs, user}) {
   return (
     <div className="jobs" data-testid='jobs'>
       {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped': user}`}</h1>}
-      {showApplied && <h1>{`User ${user === -1 ? 'loggin skipped': user} Applied to ${appliedFor.length} Jobs`}</h1>}
+      {showApplied && <h1 data-testid='appliedHeading'>{`User ${user === -1 ? 'loggin skipped': user} Applied to ${appliedFor.length} Jobs`}</h1>}
       <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
-      {!showApplied && <button className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
-      {showApplied && <button className="applied" onClick={displayApplied}>view Job Openings</button>}
+      {!showApplied && <button data-testid='seeapplied' className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
+      {showApplied && <button data-testid='hideapplied' className="applied" onClick={displayApplied}>view Job Openings</button>}
       {!showApplied &&
       <div className="search">
         <br/>

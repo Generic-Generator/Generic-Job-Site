@@ -78,7 +78,7 @@ function Poster({poster}) {
   }
 
   return (
-    <div>
+    <div data-testid='poster'>
     <h1 className="center">{`Welcome Poster ${poster}`}</h1>
     <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>
     {postings.length < 4 && <div className="overview"><button onClick={createJob}>post a new job</button></div>}

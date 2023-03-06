@@ -22,12 +22,12 @@ function JobPosting({job, applied, addApplied, ind, user}) {
   }
 
   return (
-    <div className="postings">
+    <div data-testid='jobpostings' className="postings">
     <div className={`posting${(ind % 2 === 0) ? " even" : ""}`}>
           <h1 className="title">{`${job.title}`}</h1>
           <button onClick={viewPost}>View Posting</button>
     </div>
-    {applying && <Modal close={() => {viewPost()}} content={
+    {applying && <Modal data-testid='applying' close={() => {viewPost()}} content={
       <div>
         <h1>{`${job.title}`}</h1>
         <p>{job.description}</p>
