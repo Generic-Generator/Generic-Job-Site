@@ -40,14 +40,37 @@ describe ('test of Jobs component', function() {
 
   it('should switch to applied with no results found', async () => {
     // const user = userEvent.setup()
-
     render(<Jobs jobs={jobData} user={13}/>)
 
     await userEvent.click(screen.getByTestId('seeapplied'));
 
     expect(screen.getByTestId('appliedHeading')).toBeDefined();
+
+
   })
-  //need to click to see applied
+
+  it('should axios request the 1 applied for by 13', async () => {
+    render(<Jobs jobs={jobData} user={13}/>)
+
+    await userEvent.click(screen.getByTestId('seeapplied'));
+
+    await screen.findAllByTestId('appliedHeading');
+
+    expect(screen.getByTestId('appliedpostings')).toBeDefined(); // axios not working yet/ can test non axios by importing jobs applied component
+
+  })
+
+  it('should axios request the 0 applied for by 1000', async () => {
+    render(<Jobs jobs={jobData} user={1000}/>)
+
+    await userEvent.click(screen.getByTestId('seeapplied'));
+
+    await screen.findAllByTestId('appliedHeading');
+
+    expect(screen.getByTestId('noappliedpostings')).toBeDefined();
+
+
+  })
 
 
 })

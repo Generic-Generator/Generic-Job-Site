@@ -15,11 +15,12 @@ function JobsApplied({applied, user, clear}) {
   }
 
   return (
-    <div>
+    <div >
       <br/>
       {applied.length > 0 && <h3>You Have Applied to These Jobs:</h3>}
     {applied.length > 0 && applied.map((job, i) => {
       return (<Accordion
+        data-testid='appliedpostings'
         key={i}
         title={<h2 className="title">{job.title}</h2>}
         content={<div>{job.description} <br/> {`Experience: ${job.experience}`}</div>}
@@ -27,7 +28,7 @@ function JobsApplied({applied, user, clear}) {
       />)
     })}
     {applied.length > 0 && <div><h2>Warning:  the button below will clear your applied to history</h2><button onClick={clearApplied} className='warning'>UnApply to All Jobs!!!</button></div>}
-    {applied.length === 0 && <div>You Are Not Applied To Any Jobs At The Moment</div>}
+    {applied.length === 0 && <div data-testid='noappliedpostings'>You Are Not Applied To Any Jobs At The Moment</div>}
     </div>
   )
 }
