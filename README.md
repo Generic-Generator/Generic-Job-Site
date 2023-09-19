@@ -25,4 +25,3 @@ Once logged in there is a button at the top to create a new job posting. All thr
 
 Once a posting has been created it will appear in a feed below. You can click on the postings you created to double check the details and see who has applied. If you want to edit or delete your posting there are also buttons at the bottom of the expaded job to do so.
 
-Original Deployed Demo: [FRONT END ONLY DEMO](http://52.21.107.140:3004/)
