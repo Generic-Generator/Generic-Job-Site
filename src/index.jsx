@@ -26,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
       <Route path='/' element={<Jobs user={1} />}/>
       <Route path='/hunter' element={<Jobs user={1} />}/>
+      <Route path='/job-poster' element={<Poster poster={10} />}/>
     </Routes>
     </div>
     </Router>

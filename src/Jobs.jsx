@@ -23,7 +23,7 @@ function Jobs({user}) {
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
-console.log("routing to jobs")
+
   const getJobs = () => {
     axios.get('/jobs')
     .then((res) => {

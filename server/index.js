@@ -21,6 +21,22 @@ app.use(compression());
 
 app.use(express.static(path.join(__dirname, '../public')));
 
+//react router work around
+app.get('/hunter', function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+app.get('/job-poster', function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 app.get('/1', (req, res) => {
   res.send('hitting server')
 })
