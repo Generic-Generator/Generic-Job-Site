@@ -8,21 +8,26 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import Jobs from './Jobs.jsx';
+import Poster from './Poster.jsx';
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
+import {  BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Router>
+      <div className="overview">
+      <Routes>
+      <Route path='/' element={<Jobs user={1} />}/>
+      <Route path='/hunter' element={<Jobs user={1} />}/>
+    </Routes>
+    </div>
+    </Router>
   </React.StrictMode>
 );

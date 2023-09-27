@@ -2,16 +2,42 @@ import React, {useState, useEffect} from 'react';
 import JobPosting from './JobPosting.jsx';
 import JobsApplied from './JobsApplied.jsx';
 import axios from 'axios';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './globalStyles.js';
+import { lightTheme, darkTheme } from './Themes.js';
+import '../public/compStyles.css';
+import Header from './Header.jsx';
 
-function Jobs({jobs, user}) {
+function Jobs({user}) {
   const [appliedFor, setAppliedFor] = useState([])
   const [showApplied, setShowApplied] = useState(false);
   const [searching, setSearching] = useState(false);
   const [searchingXp, setSearchingXp] = useState(false);
   const [searched, setSearched] = useState('');
   const [filtered, setFiltered] = useState([]);
-  const [notApplied, setNotApplied] = useState(jobs);
+  const [notApplied, setNotApplied] = useState([]);
   const [exp, setExp] = useState(-1);
+  const [jobs, setJobs] = useState([]);
+
+  const [theme, setTheme] = useState('dark');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+console.log("routing to jobs")
+  const getJobs = () => {
+    axios.get('/jobs')
+    .then((res) => {
+      setJobs(res.data.rows)
+      setNotApplied(res.data.rows)
+    })
+    .catch((err) => {
+      console.log('error getting jobs from server') //keep err out for security, but can log if error occurs
+    })
+  }
+
+  useEffect(() => {
+    getJobs();
+  }, [])
 
   const displayApplied = () => {
     setShowApplied(!showApplied)
@@ -106,6 +132,7 @@ function Jobs({jobs, user}) {
       if (appliedJobs.indexOf(job.job) === -1) {
         notAppliedHolder.push(job);
       }
+      console.log("repeated calls test")
     });
 
     setNotApplied(notAppliedHolder)
@@ -117,6 +144,11 @@ function Jobs({jobs, user}) {
   }, [])
 
   return (
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <>
+        <GlobalStyles />
+        <Header theme={theme} themeToggler={themeToggler} />
+        <div className="overview">
     <div className="jobs" data-testid='jobs'>
       {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped': user}`}</h1>}
       {showApplied && <h1 data-testid='appliedHeading'>{`User ${user === -1 ? 'loggin skipped': user} Applied to ${appliedFor.length} Jobs`}</h1>}
@@ -162,6 +194,9 @@ function Jobs({jobs, user}) {
         {!showApplied && (searching || searchingXp) && filtered.length === 0 && notApplied.length > 0 &&  appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
 
     </div>
+    </div>
+    </>
+    </ThemeProvider>
   )
 }
 

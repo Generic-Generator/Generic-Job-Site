@@ -13,26 +13,11 @@ function App() {
   const [user, setUser] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(-1);
-  const [jobs, setJobs] = useState([]);
   const [poster, setPoster] = useState('');
   const [posterIn, setPosterIn] = useState(false);
   const [loggedInPoster, setLoggedInPoster] = useState(-1);
 
   const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-  const getJobs = () => {
-    axios.get('/jobs')
-    .then((res) => {
-      setJobs(res.data.rows)
-    })
-    .catch((err) => {
-      console.log('error getting jobs from server') //keep err out for security, but can log if error occurs
-    })
-  }
-
-  useEffect(() => {
-    getJobs();
-  }, [])
 
   const [theme, setTheme] = useState('dark');
   const themeToggler = () => {
@@ -136,7 +121,7 @@ This login screen is set up in preparation to recieve a user or poster id  after
             </div>
 
           </div>}
-          {loggedIn && <Jobs jobs={jobs} user={loggedInUser} />}
+          {loggedIn && <Jobs user={loggedInUser} />}
           {posterIn && <Poster poster={loggedInPoster}/>}
           {(!loggedIn && !posterIn) && <div><br/><br/>last updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
