@@ -145,6 +145,7 @@ module.exports = {
 
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
+  testEnvironmentOptions: {"url": "http://localhost:3007"},
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},

@@ -3,6 +3,11 @@ import Modal from './modal.js';
 import Accordion from './accordion.js';
 import axios from 'axios';
 import PosterPosting from './PosterPosting.jsx';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './globalStyles.js';
+import { lightTheme, darkTheme } from './Themes.js';
+// import './compStyles.css';
+import Header from './Header.jsx';
 
 function Poster({poster}) {
   const [addPosting, setAddPosting] = useState(false)
@@ -11,6 +16,11 @@ function Poster({poster}) {
   const [description, setDescription] =  useState('')
   const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,?!'.split('')
   const [postings, setPostings] = useState([])
+
+  const [theme, setTheme] = useState('dark');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
 
   const getPostings = () => {
     axios.get(`/posted/${poster}`)
@@ -78,6 +88,10 @@ function Poster({poster}) {
   }
 
   return (
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <>
+        <GlobalStyles />
+        <Header theme={theme} themeToggler={themeToggler} />
     <div data-testid='poster'>
     <h1 className="center">{`Welcome Poster ${poster}`}</h1>
     <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>
@@ -115,6 +129,8 @@ function Poster({poster}) {
       </div>
     }/>}
     </div>
+    </>
+    </ThemeProvider>
   )
 }
 

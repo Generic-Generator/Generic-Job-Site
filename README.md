@@ -2,7 +2,7 @@
 
 Devoloping an MVP for a Job Search site since I have been on quite a few and have ideas for improvement. Updating deployed demo as I have time to work on it.
 
-New Demo: [FULL STACK DEMO](http://52.21.107.140:3007/)
+New Demo: [FULL STACK DEMO](http://107.23.19.214:3007/)
 New Job Poster Feature added 2/11/23!
 
 I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap. Style has been kept to a minimum because the issues I want to fix on other job sites are all issues of functionality, and sucessful job sites are similarly minimal in style. I looked up to see if a competitor had a dark mode, and found out it is hidden inside the user settings. While that means I don't have a style improvement, my switch in the header is more accessable to users.
@@ -25,4 +25,3 @@ Once logged in there is a button at the top to create a new job posting. All thr
 
 Once a posting has been created it will appear in a feed below. You can click on the postings you created to double check the details and see who has applied. If you want to edit or delete your posting there are also buttons at the bottom of the expaded job to do so.
 
-Original Deployed Demo: [FRONT END ONLY DEMO](http://52.21.107.140:3004/)
