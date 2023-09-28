@@ -10,13 +10,14 @@ import { lightTheme, darkTheme } from './Themes.js';
 import Header from './Header.jsx';
 
 
-function Poster({poster}) {
+function Poster() {
   const [addPosting, setAddPosting] = useState(false)
   const [exp, setExp] = useState(-1)
   const [title, setTitle] = useState('')
   const [description, setDescription] =  useState('')
   const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,?!'.split('')
   const [postings, setPostings] = useState([])
+  const [poster, setPoster] = useState(0)
 
   const [theme, setTheme] = useState('dark');
   const themeToggler = () => {
@@ -24,7 +25,8 @@ function Poster({poster}) {
   };
 
   const getPostings = () => {
-    axios.get(`/posted/${poster}`)
+    if(poster > 0){
+      axios.get(`/posted/${poster}`)
     .then((res) => {
       let ordered = res.data.rows.sort((a,b) => {
         if(a.job > b.job){
@@ -40,11 +42,16 @@ function Poster({poster}) {
     .catch((err) => {
       console.log('error retrieving postings')
     })
+    }
+
   }
 
   useEffect(() => {
-    getPostings()
+    setPoster(localStorage.poster)
+
   }, [])
+
+
 
   const createJob = () => {
     setAddPosting(!addPosting)
@@ -87,6 +94,11 @@ function Poster({poster}) {
       alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. The tilte must be 100 characters or less and the description must be 300 or less characters. for referecnce approved characters are ${allowed}`)
     }
   }
+
+    useEffect(() => {
+    getPostings()
+
+  }, [poster])
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>

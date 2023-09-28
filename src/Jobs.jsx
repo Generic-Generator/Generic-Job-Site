@@ -9,7 +9,7 @@ import '../public/compStyles.css';
 import Header from './Header.jsx';
 
 
-function Jobs({user}) {
+function Jobs() {
   const [appliedFor, setAppliedFor] = useState([])
   const [showApplied, setShowApplied] = useState(false);
   const [searching, setSearching] = useState(false);
@@ -19,6 +19,7 @@ function Jobs({user}) {
   const [notApplied, setNotApplied] = useState([]);
   const [exp, setExp] = useState(-1);
   const [jobs, setJobs] = useState([]);
+  const [user, setUser] = useState(0);
 
   const [theme, setTheme] = useState('dark');
   const themeToggler = () => {
@@ -37,6 +38,7 @@ function Jobs({user}) {
   }
 
   useEffect(() => {
+    setUser(localStorage.hunter)
     getJobs();
   }, [])
 
@@ -142,7 +144,7 @@ function Jobs({user}) {
 
   useEffect(() => {
     getApplied()
-  }, [])
+  }, [jobs])
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
