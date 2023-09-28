@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate} from 'react-router-dom';
+
 
 const HeaderContainer = styled.div`
   box-sizing: border-box;
@@ -24,10 +26,14 @@ const HeaderContainer = styled.div`
 
 const Header = ({ theme, themeToggler}) => {
 
+  const navigate = useNavigate();
+
+
 
   return (
     <HeaderContainer data-testid='header'>
       <h1 className="version">Job Finder Demo 1.3.2</h1>
+      <button onClick={() => {navigate('/')}}>Home</button>
       <label className="switch">
         <input
           type="checkbox"

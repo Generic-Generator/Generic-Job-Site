@@ -8,6 +8,7 @@ import { lightTheme, darkTheme } from './Themes.js';
 import Header from './Header.jsx';
 import axios from 'axios';
 import Poster from './Poster.jsx';
+import { useNavigate} from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState('');
@@ -16,6 +17,8 @@ function App() {
   const [poster, setPoster] = useState('');
   const [posterIn, setPosterIn] = useState(false);
   const [loggedInPoster, setLoggedInPoster] = useState(-1);
+
+  const navigate = useNavigate();
 
   const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -31,7 +34,9 @@ function App() {
   const postUser = () => {
     axios.post('/user', {user: user})
     .then((res) => {
-      setLoggedIn(!loggedIn)
+
+      navigate('/hunter')
+      //setLoggedIn(!loggedIn)
     })
     .catch((err) => {
       console.log('error loging in user')
@@ -44,7 +49,8 @@ function App() {
       return
     }
     if (user.length > 0 && user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
-      setLoggedInUser(Number(user)) // now that it's verified turn into number for queries
+      localStorage.hunter = Number(user)
+      //setLoggedInUser(Number(user)) // now that it's verified turn into number for queries
       postUser()
     } else {
       alert("user id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
@@ -63,7 +69,8 @@ function App() {
       return
     }
     if (poster.length > 0 && digits.indexOf(poster) !== -1) {
-      setLoggedInPoster(Number(poster)) // now that it's verified turn into number for queries
+      localStorage.poster = Number(poster)
+      //setLoggedInPoster(Number(poster)) // now that it's verified turn into number for queries
       postPoster();
     } else {
       alert("poster id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
@@ -73,7 +80,9 @@ function App() {
   const postPoster = () => {
     axios.post('/poster', {poster: poster})
     .then((res) => {
-      setPosterIn(!posterIn)
+
+      navigate('/job-poster')
+      //setPosterIn(!posterIn)
     })
     .catch((err) => {
       console.log('error loging in user')
