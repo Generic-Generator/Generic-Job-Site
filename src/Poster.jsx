@@ -9,6 +9,7 @@ import { lightTheme, darkTheme } from './Themes.js';
 // import './compStyles.css';
 import Header from './Header.jsx';
 
+
 function Poster({poster}) {
   const [addPosting, setAddPosting] = useState(false)
   const [exp, setExp] = useState(-1)

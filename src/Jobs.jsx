@@ -8,6 +8,7 @@ import { lightTheme, darkTheme } from './Themes.js';
 import '../public/compStyles.css';
 import Header from './Header.jsx';
 
+
 function Jobs({user}) {
   const [appliedFor, setAppliedFor] = useState([])
   const [showApplied, setShowApplied] = useState(false);
