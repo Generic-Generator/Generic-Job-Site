@@ -33,7 +33,8 @@ const Header = ({ theme, themeToggler}) => {
   return (
     <HeaderContainer data-testid='header'>
       <h1 className="version">Job Finder Demo 1.3.2</h1>
-      <button onClick={() => {navigate('/')}}>Home</button>
+      <div>
+      <button className="home" onClick={() => {navigate('/')}}>H</button>
       <label className="switch">
         <input
           type="checkbox"
@@ -50,6 +51,7 @@ const Header = ({ theme, themeToggler}) => {
           </span>
         </span>
       </label>
+      </div>
 
     </HeaderContainer>
   );
