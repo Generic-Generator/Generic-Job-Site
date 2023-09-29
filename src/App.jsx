@@ -132,7 +132,7 @@ This login screen is set up in preparation to recieve a user or poster id  after
           </div>}
           {loggedIn && <Jobs user={loggedInUser} />}
           {posterIn && <Poster poster={loggedInPoster}/>}
-          {(!loggedIn && !posterIn) && <div><br/><br/>last updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
+          {(!loggedIn && !posterIn) && <div><br/><br/>last updated 9/29/23 split into multi page app<br/>updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>

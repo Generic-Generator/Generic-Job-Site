@@ -33,7 +33,7 @@ const Header = ({ theme, themeToggler}) => {
 
   return (
     <HeaderContainer data-testid='header'>
-      <h1 className="version">Job Finder Demo 1.3.2</h1>
+      <h1 className="version">Job Finder Demo 1.4</h1>
       <div>
       <button className="home" onClick={() => {navigate('/')}}><FontAwesomeIcon icon={faHome} /></button>
       <label className="switch">
