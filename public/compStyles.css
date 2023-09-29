@@ -47,7 +47,7 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 50px;
   height: 34px;
   margin-top: 30px;
 }
@@ -91,9 +91,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
 }
 
 .slider.round {
@@ -109,6 +109,11 @@ input:checked + .slider:before {
   align-items: center;
 }
 
+.home {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(0, 0, 0);
+}
 /* accordion styles */
 
 .accordion-title {

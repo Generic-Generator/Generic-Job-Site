@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate} from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 const HeaderContainer = styled.div`
   box-sizing: border-box;
@@ -32,8 +33,9 @@ const Header = ({ theme, themeToggler}) => {
 
   return (
     <HeaderContainer data-testid='header'>
-      <h1 className="version">Job Finder Demo 1.3.2</h1>
-      <button onClick={() => {navigate('/')}}>Home</button>
+      <h1 className="version">Job Finder Demo 1.4</h1>
+      <div>
+      <button className="home" onClick={() => {navigate('/')}}><FontAwesomeIcon icon={faHome} /></button>
       <label className="switch">
         <input
           type="checkbox"
@@ -50,6 +52,7 @@ const Header = ({ theme, themeToggler}) => {
           </span>
         </span>
       </label>
+      </div>
 
     </HeaderContainer>
   );
