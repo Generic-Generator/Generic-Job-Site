@@ -112,7 +112,7 @@ input:checked + .slider:before {
 .home {
   height: 30px;
   width: 30px;
-  background-color: crimson;
+  background-color: rgb(0, 0, 0);
 }
 /* accordion styles */
 

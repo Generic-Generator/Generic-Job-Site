@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/rocknswimmer/Generic-Job-Site#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.2.3",
     "babel-jest": "^29.4.3",
     "compression": "^1.7.4",
