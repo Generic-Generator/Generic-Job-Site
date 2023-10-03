@@ -6,7 +6,6 @@ import PosterPosting from './PosterPosting.jsx';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './globalStyles.js';
 import { lightTheme, darkTheme } from './Themes.js';
-// import './compStyles.css';
 import Header from './Header.jsx';
 
 

@@ -12,11 +12,7 @@ import { useNavigate} from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(-1);
   const [poster, setPoster] = useState('');
-  const [posterIn, setPosterIn] = useState(false);
-  const [loggedInPoster, setLoggedInPoster] = useState(-1);
 
   const navigate = useNavigate();
 
@@ -36,7 +32,6 @@ function App() {
     .then((res) => {
 
       navigate('/hunter')
-      //setLoggedIn(!loggedIn)
     })
     .catch((err) => {
       console.log('error loging in user')
@@ -50,18 +45,12 @@ function App() {
     }
     if (user.length > 0 && user.split('').every((char) => {return digits.indexOf(char) !== -1})) {
       localStorage.hunter = Number(user)
-      //setLoggedInUser(Number(user)) // now that it's verified turn into number for queries
       postUser()
     } else {
       alert("user id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
     }
 
   }
-
-  // const loginSkipped = () => {
-  //   // setUser('login skipped')
-  //   setLoggedIn(!loggedIn)
-  // }
 
   const loginPoster = () => {
     if(poster.length > 1) {
@@ -70,7 +59,6 @@ function App() {
     }
     if (poster.length > 0 && digits.indexOf(poster) !== -1) {
       localStorage.poster = Number(poster)
-      //setLoggedInPoster(Number(poster)) // now that it's verified turn into number for queries
       postPoster();
     } else {
       alert("poster id must be a positive whole number for security, the array of approved characters is ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']")
@@ -80,9 +68,7 @@ function App() {
   const postPoster = () => {
     axios.post('/poster', {poster: poster})
     .then((res) => {
-
       navigate('/job-poster')
-      //setPosterIn(!posterIn)
     })
     .catch((err) => {
       console.log('error loging in user')
@@ -99,10 +85,9 @@ function App() {
         <GlobalStyles />
         <Header theme={theme} themeToggler={themeToggler} />
         <div>
-          {(!loggedIn && !posterIn) && <div className='overview'>
+          {<div className='overview'>
             <h1>Generic Job Site Demo</h1>
-            {/* <h2>To speed run or view the front end only demo click below</h2>
-            <button onClick={loginSkipped}>Skip Login</button> */}
+
 
             <p>
 This login screen is set up in preparation to recieve a user or poster id  after authentication. To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field and limited the length to a max of 3 digits. The job poster input field is similarly restricted to digits 0-9 but is limited to 1 digit to limit demo tester job postings.
@@ -130,9 +115,8 @@ This login screen is set up in preparation to recieve a user or poster id  after
             </div>
 
           </div>}
-          {loggedIn && <Jobs user={loggedInUser} />}
-          {posterIn && <Poster poster={loggedInPoster}/>}
-          {(!loggedIn && !posterIn) && <div><br/><br/>last updated 9/29/23 split into multi page app<br/>updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
+
+          {<div><br/><br/>last updated 9/29/23 split into multi page app<br/>updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>
