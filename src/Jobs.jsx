@@ -150,7 +150,7 @@ function Jobs() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Header theme={theme} themeToggler={themeToggler} />
+        <Header theme={theme} themeToggler={themeToggler} home={true}/>
         <div className="overview">
     <div className="jobs" data-testid='jobs'>
       {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped': user}`}</h1>}

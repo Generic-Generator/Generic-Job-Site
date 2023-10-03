@@ -25,7 +25,7 @@ const HeaderContainer = styled.div`
 `;
 
 
-const Header = ({ theme, themeToggler}) => {
+const Header = ({ theme, themeToggler, home}) => {
 
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const Header = ({ theme, themeToggler}) => {
     <HeaderContainer data-testid='header'>
       <h1 className="version">Job Finder Demo 1.4</h1>
       <div>
-      <button className="home" onClick={() => {navigate('/')}}><FontAwesomeIcon icon={faHome} /></button>
+      {home && <button className="home" onClick={() => {navigate('/')}}><FontAwesomeIcon icon={faHome} /></button>}
       <label className="switch">
         <input
           type="checkbox"
