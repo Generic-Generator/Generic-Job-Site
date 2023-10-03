@@ -83,7 +83,7 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Header theme={theme} themeToggler={themeToggler} />
+        <Header theme={theme} themeToggler={themeToggler} home={false}/>
         <div>
           {<div className='overview'>
             <h1>Generic Job Site Demo</h1>

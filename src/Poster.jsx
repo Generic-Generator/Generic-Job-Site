@@ -103,7 +103,7 @@ function Poster() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Header theme={theme} themeToggler={themeToggler} />
+        <Header theme={theme} themeToggler={themeToggler} home={true}/>
     <div data-testid='poster'>
     <h1 className="center">{`Welcome Poster ${poster}`}</h1>
     <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>
