@@ -89,8 +89,12 @@ function App() {
             <h1>Generic Job Site Demo</h1>
 
 
-            <p>
-This login screen is set up in preparation to recieve a user or poster id  after authentication. To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field and limited the length to a max of 3 digits. The job poster input field is similarly restricted to digits 0-9 but is limited to 1 digit to limit demo tester job postings.
+            <p className="walkthrough">
+This login screen is set up to recieve a hunter or poster id to test out being that user. Once logged in, interactions with the demo will be saved to the account number you are signed into. You can make a new job as a poster, then go back home and log in as a hunter to apply to the job you just created. If you log back into the poster you can confirm the hunters who have applied to your posting. Log into the same user on a different device or refresh and see the data persit.
+</p>
+<p className="design">
+
+To demonstrate handling user input attacks, I have only approved the digits 0-9 for the user input field and limited the length to a max of 3 digits. The job poster input field is similarly restricted to digits 0-9 but is limited to 1 digit to limit demo tester job postings.
 
 
                </p>
