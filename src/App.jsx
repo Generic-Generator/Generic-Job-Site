@@ -90,7 +90,7 @@ function App() {
 
 
             <p className="walkthrough">
-This login screen is set up to recieve a user or poster id to test out being that user or poster. Once logged in, interactions with the demo will be saved to the account number you are signed into. You can make a new job as a poster, then go back home and log in as a user to apply to the job you just created. If you log back into the poster you can confirm the users who have applied to your posting. Log into the same user or poster on a different device or refresh and see the data persit.
+This login screen is set up to recieve a hunter or poster id to test out being that user. Once logged in, interactions with the demo will be saved to the account number you are signed into. You can make a new job as a poster, then go back home and log in as a hunter to apply to the job you just created. If you log back into the poster you can confirm the hunters who have applied to your posting. Log into the same user on a different device or refresh and see the data persit.
 </p>
 <p className="design">
 
