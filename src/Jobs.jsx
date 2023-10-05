@@ -139,7 +139,7 @@ function Jobs() {
       if (appliedJobs.indexOf(job.job) === -1) {
         notAppliedHolder.push(job);
       }
-      console.log("repeated calls test")
+
     });
 
     setNotApplied(notAppliedHolder)
