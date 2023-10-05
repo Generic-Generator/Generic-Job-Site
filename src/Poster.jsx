@@ -46,7 +46,10 @@ function Poster() {
   }
 
   useEffect(() => {
-    setPoster(localStorage.poster)
+    if(localStorage.poster >= 0){
+      setPoster(localStorage.poster)
+    }
+
 
   }, [])
 

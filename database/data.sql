@@ -27,6 +27,10 @@ CREATE TABLE applied (
 );
 
 insert into posters (poster) values (10) returning *;
+insert into posters (poster) values (0) returning *;
+insert into users (user_num) values (0) returning *;
+
+
 insert into jobs (title, descript, experience) values ('Full Stack I', 'Tech Stack: mongodb, express, angular, node', 0) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack II', 'Tech Stack: mongodb, express, react, node', 2) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack III', 'Tech Stack: mongodb, express, react, node', 4) returning *;
