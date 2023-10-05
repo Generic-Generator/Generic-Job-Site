@@ -38,8 +38,12 @@ function Jobs() {
   }
 
   useEffect(() => {
-    setUser(localStorage.hunter)
+    if (localStorage.hunter >= 0){
+      setUser(localStorage.hunter)
+
+    }
     getJobs();
+
   }, [])
 
   const displayApplied = () => {
