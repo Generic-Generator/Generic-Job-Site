@@ -24,7 +24,7 @@ function Poster() {
   };
 
   const getPostings = () => {
-    if(poster > 0){
+    if(poster >= 0){
       axios.get(`/posted/${poster}`)
     .then((res) => {
       let ordered = res.data.rows.sort((a,b) => {
