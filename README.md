@@ -3,7 +3,10 @@
 Devoloping an MVP for a Job Search site since I have been on quite a few and have ideas for improvement. Updating deployed demo as I have time to work on it.
 
 New Demo: [FULL STACK DEMO](http://107.23.19.214:3007/)
-New Job Poster Feature added 2/11/23!
+
+Split into separate pages 9/29/23 Also added a returning hunter/poster button to each demo that allows you to sign back in as the last hunter or poster you signed in as to that particular demo.
+
+Job Poster Feature added 2/11/23!
 
 I hope this demo is a more accurate way to evaluate my skills than watching an edited screen cap. Style has been kept to a minimum because the issues I want to fix on other job sites are all issues of functionality, and sucessful job sites are similarly minimal in style. I looked up to see if a competitor had a dark mode, and found out it is hidden inside the user settings. While that means I don't have a style improvement, my switch in the header is more accessable to users.
 
