@@ -42,3 +42,5 @@ insert into jobs (title, descript, experience) values ('Full Stack React', 'Tech
 insert into jobs (title, descript, experience) values ('Software Developer .Net', 'Tech Stack: .NET, C#', 5) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack, Ruby', 'Tech Stack: not sure', 3) returning *;
 insert into jobs (title, descript, experience) values ('Full Stack Java Dev', 'Tech Stack: not sure something about spring?', 5) returning *;
+
+-- just learned how info is stored and kept when deleting and updating, need to make vaccum considerations at scale --
