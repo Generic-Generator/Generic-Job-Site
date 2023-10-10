@@ -110,46 +110,49 @@ function Poster() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Header theme={theme} themeToggler={themeToggler} home={true}/>
-    <div data-testid='poster'>
-    <h1 className="center">{`Welcome Poster ${poster}`}</h1>
-    {poster < 0 && <h3 className="center">You do not appear to be signed in, return home and try again</h3>}
-    {poster >= 0 && <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>}
-    {poster >= 0 && poster !== 10 && postings.length < 4 && <div className="overview"><button onClick={createJob}>post a new job</button></div>}
-    <h2 className="center">Created Jobs</h2>
-    <h3 className="center">You can see who has applied to your postings and edit/delete the posting if you by clicking on the job </h3>
-    {postings.length > 0 && postings.map((job, i) => {
-      return (<PosterPosting key={i} job={job} ind={i} poster={poster} update={() => {getPostings()}} />)
-    })}
-    {postings.length === 0 && <div>There are no job postings active for your company</div>}
-    {addPosting && <Modal close={createJob} content={
-      <div>
-        <form onSubmit={submitJob}>
-          <lable>Job Title</lable>
-          <input type="text" placeholder="Software Engineer" onChange={typedTitle}></input>
-          <span>{`${title.length}/100`}</span>
-          <br/>
-          <lable>Job Description</lable>
-          <input type="text" placeholder="list the tech stack" onChange={typedDescription}></input>
-          <span>{`${description.length}/300`}</span>
-          <br/>
-          <label className="xp-label">Required Years of Experience:</label>
-          <select name="exp" onChange={interpretExp}>
-          <option value={-1}>Select</option>
-            <option value={0}>0</option>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-          <br/>
-          <button type="submit" >Post Job</button>
-        </form>
-      </div>
-    }/>}
-    </div>
-    </>
+        <Header theme={theme} themeToggler={themeToggler} home={true} />
+        <div data-testid='poster' className="overview">
+          <h1 className="center">{`Welcome Poster ${poster}`}</h1>
+          {poster < 0 && <h3 className="center">You do not appear to be signed in, return home and try again</h3>}
+          {poster >= 0 && <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>}
+          {poster >= 0 && poster !== 10 && postings.length < 4 && <div className="overview"><button onClick={createJob}>post a new job</button></div>}
+          <h2 className="center">Created Jobs</h2>
+          <h3 className="center">You can see who has applied to your postings and edit/delete the posting if you by clicking on the job </h3>
+          {postings.length > 0 && <div className="postings">
+            {postings.map((job, i) => {
+              return (<PosterPosting key={i} job={job} ind={i} poster={poster} update={() => { getPostings() }} />)
+            })}
+          </div>
+          }
+          {postings.length === 0 && <div>There are no job postings active for your company</div>}
+          {addPosting && <Modal close={createJob} content={
+            <div>
+              <form onSubmit={submitJob}>
+                <lable>Job Title</lable>
+                <input type="text" placeholder="Software Engineer" onChange={typedTitle}></input>
+                <span>{`${title.length}/100`}</span>
+                <br />
+                <lable>Job Description</lable>
+                <input type="text" placeholder="list the tech stack" onChange={typedDescription}></input>
+                <span>{`${description.length}/300`}</span>
+                <br />
+                <label className="xp-label">Required Years of Experience:</label>
+                <select name="exp" onChange={interpretExp}>
+                  <option value={-1}>Select</option>
+                  <option value={0}>0</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                </select>
+                <br />
+                <button type="submit" >Post Job</button>
+              </form>
+            </div>
+          } />}
+        </div>
+      </>
     </ThemeProvider>
   )
 }
