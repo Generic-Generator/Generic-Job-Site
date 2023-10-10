@@ -61,6 +61,7 @@ if((title.length > 0 && title.length <= 100) && (description.length > 0 && descr
       alert(`Description and title can only contain letters, numbers, spaces, and basic punctuation, and all 3 sections on the form must be filled to post a job. The tilte must be 100 characters or less and the description must be 300 or less characters. for referecnce approved characters are ${allowed}`)
     }
   }
+  //console.log("poster ", poster, poster !== 10, typeof(poster), localStorage.poster, typeof(localStorage.poster))
 
   return (
     <div data-testid='posting'>
@@ -71,8 +72,8 @@ if((title.length > 0 && title.length <= 100) && (description.length > 0 && descr
           <p>{`Description: ${job.description}`}</p>
           <p>{`Experience: ${job.experience} Years`}</p>
           <p>{`Applicants: ${job.applicants.length > 0 ? job.applicants : 'no applicants yet' }`}</p>
-          <button onClick={startEdit} >Edit Posting</button>
-          <button onClick={doubleCheckDelete} >Delete Posting</button>
+          {poster !== 10 && <button onClick={startEdit} >Edit Posting</button>}
+          {poster !== 10 && <button onClick={doubleCheckDelete} >Delete Posting</button>}
           </div>}
         ind={ind}
       />

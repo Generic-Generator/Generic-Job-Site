@@ -39,7 +39,7 @@ function Jobs() {
 
   useEffect(() => {
     if (localStorage.hunter >= 0){
-      setUser(localStorage.hunter)
+      setUser(Number(localStorage.hunter))
 
     }
     getJobs();

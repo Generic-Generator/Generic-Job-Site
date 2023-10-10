@@ -16,7 +16,7 @@ function Poster() {
   const [description, setDescription] =  useState('')
   const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 .,?!'.split('')
   const [postings, setPostings] = useState([])
-  const [poster, setPoster] = useState(0)
+  const [poster, setPoster] = useState(-1)
 
   const [theme, setTheme] = useState('dark');
   const themeToggler = () => {
@@ -42,12 +42,15 @@ function Poster() {
       console.log('error retrieving postings')
     })
     }
+    // if(localStorage.poster >= 0){
+    //   setPoster(Number(localStorage.poster))
+    // }
 
   }
 
   useEffect(() => {
     if(localStorage.poster >= 0){
-      setPoster(localStorage.poster)
+      setPoster(Number(localStorage.poster))
     }
 
 
@@ -99,6 +102,7 @@ function Poster() {
 
     useEffect(() => {
     getPostings()
+    //console.log(poster, typeof(poster))
 
   }, [poster])
 
@@ -109,8 +113,9 @@ function Poster() {
         <Header theme={theme} themeToggler={themeToggler} home={true}/>
     <div data-testid='poster'>
     <h1 className="center">{`Welcome Poster ${poster}`}</h1>
-    <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>
-    {postings.length < 4 && <div className="overview"><button onClick={createJob}>post a new job</button></div>}
+    {poster < 0 && <h3 className="center">You do not appear to be signed in, return home and try again</h3>}
+    {poster >= 0 && <h3 className="center">You can use the button below to create new job postings if you have less than 4</h3>}
+    {poster >= 0 && poster !== 10 && postings.length < 4 && <div className="overview"><button onClick={createJob}>post a new job</button></div>}
     <h2 className="center">Created Jobs</h2>
     <h3 className="center">You can see who has applied to your postings and edit/delete the posting if you by clicking on the job </h3>
     {postings.length > 0 && postings.map((job, i) => {
