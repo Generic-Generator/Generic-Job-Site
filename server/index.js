@@ -27,7 +27,7 @@ app.get('/1', (req, res) => {
 })
 
 app.get('/jobs', (req, res) => {
-  pool.query('select id as job, title as title, descript as description, experience as experience from jobs', (err, data) => {
+  pool.query('select id as job, title as title, descript as description, experience as experience, poster as poster from jobs', (err, data) => {
     if (err) {
       console.log('error retrieving jobs from db: ', err);
     }
