@@ -154,55 +154,55 @@ function Jobs() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Header theme={theme} themeToggler={themeToggler} home={true}/>
+        <Header theme={theme} themeToggler={themeToggler} home={true} />
         <div className="overview">
-    <div className="jobs" data-testid='jobs'>
-      {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped': user}`}</h1>}
-      {showApplied && <h1 data-testid='appliedHeading'>{`User ${user === -1 ? 'loggin skipped': user} Applied to ${appliedFor.length} Jobs`}</h1>}
-      <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
-      {!showApplied && <button data-testid='seeapplied' className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
-      {showApplied && <button data-testid='hideapplied' className="applied" onClick={displayApplied}>view Job Openings</button>}
-      {!showApplied &&
-      <div className="search">
-        <br/>
-<h3>The jobs will filter to match the term typed below once it is at least 3 characters long</h3>
-        <input name="Searchbar" type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
-<br/>
-<h3>Select the years of experience you have to see jobs filtered to that much experince or less</h3>
-<h4>These results are combined with the search and will sort most experience to least</h4>
-          <label className="xp-label">Years of Experience:</label>
-          <select name="exp" id="exp" onChange={interpretExp}>
-          <option value={-1}>Select</option>
-            <option value={0}>0</option>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-          <br/>
-        </div>}
+          <div className="jobs" data-testid='jobs'>
+            {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped' : user}`}</h1>}
+            {showApplied && <h1 data-testid='appliedHeading'>{`User ${user === -1 ? 'loggin skipped' : user} Applied to ${appliedFor.length} Jobs`}</h1>}
+            <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
+            {!showApplied && <button data-testid='seeapplied' className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
+            {showApplied && <button data-testid='hideapplied' className="applied" onClick={displayApplied}>view Job Openings</button>}
+            {!showApplied &&
+              <div className="search">
+                <br />
+                <h3>The jobs will filter to match the term typed below once it is at least 3 characters long</h3>
+                <input name="Searchbar" type='text' placeholder='Search for Jobs' onChange={interpretSearch}></input>
+                <br />
+                <h3>Select the years of experience you have to see jobs filtered to that much experince or less</h3>
+                <h4>These results are combined with the search and will sort most experience to least</h4>
+                <label className="xp-label">Years of Experience:</label>
+                <select name="exp" id="exp" onChange={interpretExp}>
+                  <option value={-1}>Select</option>
+                  <option value={0}>0</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                </select>
+                <br />
+              </div>}
 
-        {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
-        {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
-      {showApplied && <JobsApplied applied={appliedFor} user={user} clear={() => {getApplied()}}/>}
-      {!showApplied && (!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
-        return (
-        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => {getApplied()}} />
-        )
-        })}
-        {!showApplied && (!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
-        {!showApplied && (searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
-        return (
-        <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => {getApplied()}} />
-        )
-        })}
-        {!showApplied && (searching || searchingXp) && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
-        {!showApplied && (searching || searchingXp) && filtered.length === 0 && notApplied.length > 0 &&  appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
+            {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
+            {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
+            {showApplied && <JobsApplied applied={appliedFor} user={user} clear={() => { getApplied() }} />}
+            {!showApplied && (!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
+              return (
+                <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => { getApplied() }} />
+              )
+            })}
+            {!showApplied && (!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
+            {!showApplied && (searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
+              return (
+                <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => { getApplied() }} />
+              )
+            })}
+            {!showApplied && (searching || searchingXp) && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
+            {!showApplied && (searching || searchingXp) && filtered.length === 0 && notApplied.length > 0 && appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
 
-    </div>
-    </div>
-    </>
+          </div>
+        </div>
+      </>
     </ThemeProvider>
   )
 }
