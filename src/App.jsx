@@ -79,6 +79,11 @@ function App() {
     setPoster(e.target.value)
   }
 
+  const viewOriginalPostings = () => {
+    localStorage.poster = 10
+    navigate('/job-poster')
+  }
+
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
@@ -119,13 +124,14 @@ To demonstrate handling user input attacks, I have only approved the digits 0-9 
               <br/>
               <button onClick={loginPoster}>Login to post jobs</button>
               <button onClick={() => {navigate('/job-poster')}}>Returning Poster</button>
+              <button onClick={viewOriginalPostings}>View Perm Postings</button>
             </div>
             </div>
             </div>
 
           </div>}
 
-          {<div><br/><br/>last updated 10/5/23 returning user buttons added<br/>updated 9/29/23 split into multi page app<br/>updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
+          {<div><br/><br/>last updated 10/10/23 View Permanent Postings button added<br/>updated 10/5/23 returning user buttons added<br/>updated 9/29/23 split into multi page app<br/>updated 2/22/23 improved styling of login page<br/>updated 2/16/23 needed to delete jobs from applied first so they could always be deleted<br/>updated 2/11/23 added job poster experience<br/>updated 1/22/23 added minimal back end to demo<br/>updated 1/18/23 minor style changes<br/>updated 1/17/23 after suggestions and finding missed edge cases</div>}
         </div>
       </>
     </ThemeProvider>
