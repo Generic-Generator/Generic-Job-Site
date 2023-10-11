@@ -275,6 +275,16 @@ input {
   margin: 5px;
 }
 
+.post-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.company {
+  background-color: red;
+}
+
 /* mobile and ipad changes for better viewing experience */
 
 @media screen and (max-width: 600px){
