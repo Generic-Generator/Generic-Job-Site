@@ -23,7 +23,7 @@ function JobsApplied({applied, user, clear}) {
         data-testid='appliedpostings'
         key={i}
         title={<h2 className="title">{job.title}</h2>}
-        content={<div>{job.description} <br/> {`Experience: ${job.experience}`}</div>}
+        content={<div>{`Company: ${job.poster}`}<br/> {job.description} <br/> {`Experience: ${job.experience}`}</div>}
         ind={i}
       />)
     })}
