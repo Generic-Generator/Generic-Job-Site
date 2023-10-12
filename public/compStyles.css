@@ -283,6 +283,11 @@ input {
 
 .company {
   background-color: red;
+  width: 2ex;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
 }
 
 /* mobile and ipad changes for better viewing experience */
