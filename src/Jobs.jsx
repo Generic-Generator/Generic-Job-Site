@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import JobPosting from './JobPosting.jsx';
-import JobsApplied from './JobsApplied.jsx';
+// import JobsApplied from './JobsApplied.jsx';
 import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './globalStyles.js';
 import { lightTheme, darkTheme } from './Themes.js';
 import '../public/compStyles.css';
 import Header from './Header.jsx';
-
+import { useNavigate} from 'react-router-dom';
 
 function Jobs() {
   const [appliedFor, setAppliedFor] = useState([])
-  const [showApplied, setShowApplied] = useState(false);
+  //const [showApplied, setShowApplied] = useState(false);
   const [searching, setSearching] = useState(false);
   const [searchingXp, setSearchingXp] = useState(false);
   const [searched, setSearched] = useState('');
@@ -20,6 +20,8 @@ function Jobs() {
   const [exp, setExp] = useState(-1);
   const [jobs, setJobs] = useState([]);
   const [user, setUser] = useState(0);
+
+  const navigate = useNavigate();
 
   const [theme, setTheme] = useState('dark');
   const themeToggler = () => {
@@ -157,12 +159,10 @@ function Jobs() {
         <Header theme={theme} themeToggler={themeToggler} home={true} />
         <div className="overview">
           <div className="jobs" data-testid='jobs'>
-            {!showApplied && <h1>{`Jobs for user ${user === -1 ? 'loggin skipped' : user}`}</h1>}
-            {showApplied && <h1 data-testid='appliedHeading'>{`User ${user === -1 ? 'loggin skipped' : user} Applied to ${appliedFor.length} Jobs`}</h1>}
+            {<h1>{`Jobs for user ${user === -1 ? 'loggin skipped' : user}`}</h1>}
             <h3>The button below switches between jobs you have applied to and jobs you can apply to</h3>
-            {!showApplied && <button data-testid='seeapplied' className="applied" onClick={displayApplied}>view Jobs Applied to</button>}
-            {showApplied && <button data-testid='hideapplied' className="applied" onClick={displayApplied}>view Job Openings</button>}
-            {!showApplied &&
+            {<button data-testid='seeapplied' className="applied" onClick={() => {navigate('/applied-to')}}>view Jobs Applied to</button>}
+            {
               <div className="search">
                 <br />
                 <h3>The jobs will filter to match the term typed below once it is at least 3 characters long</h3>
@@ -183,22 +183,21 @@ function Jobs() {
                 <br />
               </div>}
 
-            {!showApplied && <div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
-            {showApplied && appliedFor.length > 0 && <h2>Click a job to view the details</h2>}
-            {showApplied && <JobsApplied applied={appliedFor} user={user} clear={() => { getApplied() }} />}
-            {!showApplied && (!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
+            {<div className="postscription"><h2>Job Postings</h2><h3>Once applied to the job posting will be removed from ones you can apply to</h3></div>}
+
+            {(!searching && !searchingXp) && notApplied.length > 0 && notApplied.map((job, i) => {
               return (
                 <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => { getApplied() }} />
               )
             })}
-            {!showApplied && (!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
-            {!showApplied && (searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
+            {(!searching && !searchingXp) && notApplied.length === 0 && <div>Looks Like You Have Applied To All Jobs!</div>}
+            {(searching || searchingXp) && filtered.length > 0 && filtered.map((job, i) => {
               return (
                 <JobPosting key={i} ind={i} job={job} user={user} applied={appliedFor} addApplied={() => { getApplied() }} />
               )
             })}
-            {!showApplied && (searching || searchingXp) && filtered.length === 0 && appliedFor.length === 0 && <div>No Results Matching Your Search</div>}
-            {!showApplied && (searching || searchingXp) && filtered.length === 0 && notApplied.length > 0 && appliedFor.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
+            {(searching || searchingXp) && filtered.length === 0 && <div>No Results Matching Your Search</div>}
+            {(searching || searchingXp) && filtered.length === 0 && notApplied.length > 0 && <div>You Have Applied to All Jobs Matching Your Search</div>}
 
           </div>
         </div>
