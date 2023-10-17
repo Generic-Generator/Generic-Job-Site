@@ -10,6 +10,7 @@ import * as ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Jobs from './Jobs.jsx';
 import Poster from './Poster.jsx';
+import JobsApplied from './JobsApplied.jsx';
 // import {
 //   createBrowserRouter,
 //   RouterProvider,
@@ -25,8 +26,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <div className="overview">
       <Routes>
       <Route path='/' element={<App />}/>
-      <Route path='/hunter' element={<Jobs user={1} />}/>
-      <Route path='/job-poster' element={<Poster poster={10} />}/>
+      <Route path='/hunter' element={<Jobs />}/>
+      <Route path='/applied-to' element={<JobsApplied />}/>
+      <Route path='/job-poster' element={<Poster />}/>
     </Routes>
     </div>
     </Router>
