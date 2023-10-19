@@ -186,6 +186,7 @@ button {
 }
 
 .title {
+  padding-left: 5px;
   margin-left: 5px;
 }
 
@@ -288,6 +289,8 @@ input {
   justify-content: center;
   padding: 5px;
   margin: 5px;
+  border: black solid;
+  box-shadow: 5px 5px 5px 0px #041917;
 }
 
 /* mobile and ipad changes for better viewing experience */
