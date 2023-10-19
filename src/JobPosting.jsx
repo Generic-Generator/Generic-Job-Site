@@ -25,7 +25,7 @@ function JobPosting({job, applied, addApplied, ind, user}) {
     <div data-testid='jobpostings' className="postings">
       <div className={`posting${(ind % 2 === 0) ? " even" : ""}`}>
         <div className="post-container">
-          <h1 className="company">{job.poster}</h1>
+          <h1 className={`company comp${job.poster}`}>{job.poster}</h1>
           <h2 className="title">{`${job.title}`}</h2>
         </div>
         <button onClick={viewPost}>View Posting</button>

@@ -74,7 +74,7 @@ function JobsApplied() {
         key={i}
         title={
           <div className="post-container">
-          <h1 className="company">{job.poster}</h1>
+          <h1 className={`company comp${job.poster}`}>{job.poster}</h1>
           <h2 className="title">{`${job.title}`}</h2>
         </div>
         }
