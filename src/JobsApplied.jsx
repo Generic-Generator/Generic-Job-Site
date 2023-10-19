@@ -72,7 +72,12 @@ function JobsApplied() {
       return (<Accordion
         data-testid='appliedpostings'
         key={i}
-        title={<h2 className="title">{job.title}</h2>}
+        title={
+          <div className="post-container">
+          <h1 className={`company comp${job.poster}`}>{job.poster}</h1>
+          <h2 className="title">{`${job.title}`}</h2>
+        </div>
+        }
         content={<div>{`Company: ${job.poster}`}<br/> {job.description} <br/> {`Experience: ${job.experience}`}</div>}
         ind={i}
       />)
