@@ -2,7 +2,7 @@
 
 Devoloping a Job Search site since I have been on quite a few and have ideas for improvement. Updating deployed demo as  ideas for improvements come to me, open to suggestions for improvement.
 
-New Demo: [FULL STACK DEMO](http://107.23.19.214:3007/)
+New Demo: [FULL STACK DEMO](http://44.197.151.146:3007/)
 
 I hope walking through this demo is a more accurate way to evaluate my skills than watching an edited screen cap.
 
